@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Usuario:Cliente
+    class Usuario
     {
-        public string usuario { get; set; }
+        public string nombreUser { get; set; }
         public string contraseña { get; set; }
     }
 }

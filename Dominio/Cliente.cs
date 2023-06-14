@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Cliente
+    class Cliente:Persona
     {
+
     }
 }
