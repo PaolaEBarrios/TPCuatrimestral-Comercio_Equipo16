@@ -10,6 +10,8 @@ namespace Dominio
     {
         public int codigo { get; set; }
         public Proveedor proveedor { get; set; }
+        public Producto producto { get; set; }//productos
+
 
     }
 }
