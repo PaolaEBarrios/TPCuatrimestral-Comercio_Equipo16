@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Vendedor:Empleado
+    public class Vendedor:Empleado
     {
-
+        public int codigoVenta { get; set; }
+        //el vendedor registra ventaS 
+        //el vendedor es un empleado
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-     class Tipo
+     public class Tipo
     {
         public string codigo;
         public string tipo;//juridica - fisica

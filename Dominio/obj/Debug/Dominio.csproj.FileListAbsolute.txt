@@ -1,0 +1,2 @@
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
