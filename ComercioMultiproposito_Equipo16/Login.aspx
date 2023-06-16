@@ -25,7 +25,7 @@
             
         </div>
         
-        <asp:Button ID="btnLogin" cssclass="btn btn-primary" runat="server" Text="Ingresar" />
+        <asp:Button ID="btnLogin" cssclass="btn btn-primary" OnClick="btnLogin_Click" runat="server" Text="Ingresar" />
     </form>
 
 </div>
