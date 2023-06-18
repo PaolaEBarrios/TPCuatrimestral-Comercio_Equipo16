@@ -120,3 +120,7 @@ C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\ComercioMult
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Negocio.dll
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Dominio.pdb
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Negocio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Negocio.dll
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\ComercioMultiproposito_Equipo16\bin\Negocio.pdb

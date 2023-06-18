@@ -33,13 +33,13 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.LinkButton lbtnConfiguracion;
 
         /// <summary>
-        /// Control btnAdmistrar.
+        /// Control btnCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmistrar;
+        protected global::System.Web.UI.WebControls.Button btnCompra;
 
         /// <summary>
         /// Control btnVentas.
@@ -49,14 +49,5 @@ namespace ComercioMultiproposito_Equipo16
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVentas;
-
-        /// <summary>
-        /// Control btnCompras.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCompras;
     }
 }

@@ -70,3 +70,12 @@ C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Dominio.dll
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Dominio.pdb
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Negocio.dll
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Negocio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\bin\Debug\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.dll
+C:\Users\pbarr\OneDrive\Escritorio\tp web\TPCuatrimestral-Comercio_Equipo16\Negocio\obj\Debug\Negocio.pdb
