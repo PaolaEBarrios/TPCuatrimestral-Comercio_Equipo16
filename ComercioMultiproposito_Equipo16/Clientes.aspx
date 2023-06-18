@@ -2,4 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div >
+        <asp:TextBox ID="txtFiltrarClientes" runat="server"></asp:TextBox>
+        <asp:Button ID="btnFiltrarCliente" runat="server" Text="Buscar"  CssClass="btn btn primary"/>
+    </div>
+
+
+
+
+
 </asp:Content>

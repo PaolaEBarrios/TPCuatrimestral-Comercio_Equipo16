@@ -7,6 +7,6 @@
     <p>VER UN TOTAL COMPRAS ESTE MES</p>
 <p>PRODUCTO MAS comprados y menos comprado</p>
     <p>productos con stock en minimo</p>
-    <p></p>
+    <p>compras pedidas a fecha limite dar aviso que no fue concluida- comunicarse con el proveedor X</p>
 
 </asp:Content>
