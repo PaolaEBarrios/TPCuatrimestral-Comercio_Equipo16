@@ -11,7 +11,7 @@ namespace ComercioMultiproposito_Equipo16
 {
 
 
-    public partial class Venta
+    public partial class Marcas
     {
     }
 }
