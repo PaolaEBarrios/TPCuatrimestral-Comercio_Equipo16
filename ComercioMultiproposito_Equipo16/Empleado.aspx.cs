@@ -28,5 +28,10 @@ namespace ComercioMultiproposito_Equipo16
         {
             Response.Redirect("Compra.aspx");
         }
+
+        protected void btnMarcas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Marcas.aspx");
+        }
     }
 }

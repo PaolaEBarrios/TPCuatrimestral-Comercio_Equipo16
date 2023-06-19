@@ -27,6 +27,9 @@ CREATE TABLE Categorias (
   id INT PRIMARY KEY,
   nombre VARCHAR(100)
 )
+
+
+
 Go
 CREATE TABLE Productos (
   id INT PRIMARY KEY,

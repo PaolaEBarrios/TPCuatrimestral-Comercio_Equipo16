@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="botonboton" style="padding:10px">
-                    <asp:Button ID="btnMarcas" runat="server" Text="Abrir" cssclass="btn btn-primary"/>
+                    <asp:Button ID="btnMarcas" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnMarcas_Click"/>
                 </div>
             </div>
         </div>

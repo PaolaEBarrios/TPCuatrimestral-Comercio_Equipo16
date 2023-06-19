@@ -34,3 +34,9 @@ C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.dll
 C:\Users\Peterzz\Documents\GitHub\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb

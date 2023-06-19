@@ -8,9 +8,9 @@ namespace Dominio
 {
     public class Compra
     {
-        public int codigo { get; set; }
-        public Proveedor proveedor { get; set; }
-        public Producto producto { get; set; }//productos
+        public int Codigo { get; set; }
+        public Proveedor Proveedor { get; set; }
+        public Producto Producto { get; set; }//productos
 
 
     }
