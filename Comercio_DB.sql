@@ -14,7 +14,7 @@ CREATE TABLE Proveedores (
   id INT PRIMARY KEY,
   nombre VARCHAR(100),
   direccion VARCHAR(200),
-  telefono VARCHAR(20),
+  telefono VARCHAR(20), 
   correo VARCHAR(100)
 )
 Go

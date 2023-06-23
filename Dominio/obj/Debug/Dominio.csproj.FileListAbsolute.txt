@@ -40,3 +40,9 @@ C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Domi
 C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.dll
 C:\Users\pbarr\OneDrive\Escritorio\TP WEB\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.dll
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.pdb
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.dll
+C:\Users\MATEO\Desktop\TP-Cuatri-Prog3\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb
