@@ -11,26 +11,35 @@ namespace ComercioMultiproposito_Equipo16
 {
 
 
-    public partial class Marcas
+    public partial class AgregarMarca
     {
 
         /// <summary>
-        /// Control txtBuscarMarca.
+        /// Control lblAviso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscarMarca;
+        protected global::System.Web.UI.WebControls.Label lblAviso;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control lblMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.Label lblMarca;
+
+        /// <summary>
+        /// Control txtNombreMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombreMarca;
 
         /// <summary>
         /// Control btnAgregarMarca.
@@ -42,30 +51,12 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnAgregarMarca;
 
         /// <summary>
-        /// Control btnModificarMarca.
+        /// Control btnVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarMarca;
-
-        /// <summary>
-        /// Control btnEliminarMarca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminarMarca;
-
-        /// <summary>
-        /// Control dgvMarcas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvMarcas;
+        protected global::System.Web.UI.WebControls.Button btnVolver;
     }
 }

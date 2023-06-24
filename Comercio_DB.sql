@@ -82,3 +82,7 @@ CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   FOREIGN KEY (id_venta) REFERENCES Ventas(id),
   FOREIGN KEY (id_producto) REFERENCES Productos(id)
 )
+
+INSERT INTO Marcas (id, nombre)
+VALUES (1, 'Samsung'),
+(2,'Motorola'),(3,'Apple'),(4,'Alcatel')

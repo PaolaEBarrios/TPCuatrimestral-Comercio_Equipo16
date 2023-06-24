@@ -54,7 +54,7 @@
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                 </div>
                 <div class="botonboton" style="padding:10px">
-                    <asp:Button ID="btnProveedores" runat="server" Text="Abrir" cssclass="btn btn-primary"/>
+                    <asp:Button ID="btnProveedores" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnProveedores_Click"/>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="botonboton" style="padding:10px">
-                    <asp:Button ID="Categorias" runat="server" Text="Abrir" cssclass="btn btn-primary"/>
+                    <asp:Button ID="btnCategoria" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnCategoria_Click"/>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="botonboton" style="padding:10px">
-                    <asp:Button ID="btnClientes" runat="server" Text="Abrir" cssclass="btn btn-primary"/>
+                    <asp:Button ID="btnClientes" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnClientes_Click"/>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="botonboton" style="padding:10px">
-                    <asp:Button ID="btnProductos" runat="server" Text="Abrir" cssclass="btn btn-primary"/>
+                    <asp:Button ID="btnProductos" runat="server" Text="Abrir" cssclass="btn btn-primary" OnClick="btnProductos_Click"/>
                 </div>
             </div>
         </div>

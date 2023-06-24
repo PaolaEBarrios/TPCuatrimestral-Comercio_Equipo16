@@ -85,8 +85,35 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Insert into MARCA (id, Nombre) values('" + marca.NombreMarca + "'," + marca.Codigo + ")");
+                datos.setearQuery("Insert into MARCAS (id, Nombre)  values (" + marca.Codigo + ", '" + marca.NombreMarca + "')");
                 datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public bool buscarNombreMarca(string nombre)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearQuery("select id from Marcas where nombre = '" + nombre + "'");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {

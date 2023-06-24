@@ -7,11 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace ComercioMultiproposito_Equipo16
 {
-    public partial class Proveedores : System.Web.UI.Page
+    public partial class Categoria : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
         }
     }

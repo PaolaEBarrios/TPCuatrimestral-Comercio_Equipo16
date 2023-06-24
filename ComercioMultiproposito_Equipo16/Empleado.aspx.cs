@@ -33,5 +33,25 @@ namespace ComercioMultiproposito_Equipo16
         {
             Response.Redirect("Marcas.aspx");
         }
+
+        protected void btnProveedores_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Proveedor.aspx");
+        }
+
+        protected void btnCategoria_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Categoria.apx");
+        }
+
+        protected void btnClientes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Clientes.aspx");
+        }
+
+        protected void btnProductos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Productos.aspx");
+        }
     }
 }

@@ -69,13 +69,13 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnMarcas;
 
         /// <summary>
-        /// Control Categorias.
+        /// Control btnCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Categorias;
+        protected global::System.Web.UI.WebControls.Button btnCategoria;
 
         /// <summary>
         /// Control btnClientes.

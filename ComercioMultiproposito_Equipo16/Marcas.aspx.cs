@@ -31,5 +31,17 @@ namespace ComercioMultiproposito_Equipo16
                 throw ex;
             }
         }
+
+        protected void dgvMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var id=dgvMarcas.SelectedDataKey.Value.ToString();
+
+            
+        }
+
+        protected void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarMarca.aspx");
+        }
     }
 }
