@@ -83,7 +83,7 @@
     <div class="cajaDGV">     
        <div class="row">
          <div class="col">
-            <asp:GridView ID="dgvMarcas" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged" DataKeyNames="Codigo" runat="server" CssClass="table table-dark table-bordered" AutoGenerateColumns="false" >
+            <asp:GridView ID="dgvMarcas" OnSelectedIndexChanged="dgvMarcas_SelectedIndexChanged" DataKeyNames="Codigo" runat="server" CssClass="table table-dark " AutoGenerateColumns="false" >
 
                 <Columns>
 

@@ -13,7 +13,16 @@ namespace ComercioMultiproposito_Equipo16
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["id"] != null)
+            {
+                lblAgregarMarca.Visible = false;
+                btnAgregarMarca.Visible=false;
+            }
+            else
+            {
+                lblModificar.Visible = false;
+                btnModificar.Visible = false;
+            }
         }
 
         protected void btnAgregarMarca_Click(object sender, EventArgs e)
@@ -42,8 +51,9 @@ namespace ComercioMultiproposito_Equipo16
 
         }
 
-        
-            
-
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Marcas.aspx");
+        }
     }
 }

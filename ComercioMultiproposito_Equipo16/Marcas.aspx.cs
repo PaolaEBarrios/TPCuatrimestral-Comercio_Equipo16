@@ -35,8 +35,8 @@ namespace ComercioMultiproposito_Equipo16
         protected void dgvMarcas_SelectedIndexChanged(object sender, EventArgs e)
         {
             var id=dgvMarcas.SelectedDataKey.Value.ToString();
+            Response.Redirect("AgregarMarca.aspx?id="+id);
 
-            
         }
 
         protected void btnAgregarMarca_Click(object sender, EventArgs e)
