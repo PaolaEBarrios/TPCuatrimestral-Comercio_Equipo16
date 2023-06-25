@@ -42,24 +42,6 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnAgregarMarca;
 
         /// <summary>
-        /// Control btnModificarMarca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarMarca;
-
-        /// <summary>
-        /// Control btnEliminarMarca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminarMarca;
-
-        /// <summary>
         /// Control dgvMarcas.
         /// </summary>
         /// <remarks>

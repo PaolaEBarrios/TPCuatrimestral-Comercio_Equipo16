@@ -58,12 +58,12 @@ namespace Negocio
             {
 
                 int cont = 0;
-                datos.setearQuery("select id from Marcas");
+                datos.setearQuery("select top(1) id from Marcas order by id desc");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    cont++;
+                    cont = (int)datos.Lector["id"];
                 }
 
                 return cont + 1;
@@ -98,7 +98,25 @@ namespace Negocio
             }
         }
 
+        public void EliminarMarca(string codigo)
+        {
 
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearQuery("delete from Marcas where id= "+codigo);
+                datos.ejecutarAccion();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public bool buscarNombreMarca(string nombre)
         {
             AccesoDatos datos = new AccesoDatos();
