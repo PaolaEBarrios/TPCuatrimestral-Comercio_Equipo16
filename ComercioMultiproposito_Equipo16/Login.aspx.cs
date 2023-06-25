@@ -28,7 +28,7 @@ namespace ComercioMultiproposito_Equipo16
                 if (negocio.Loguear(usuario))
                 {
                     Session.Add("usuario", usuario);
-                    Response.Redirect("Compra.aspx", false);
+                    Response.Redirect("Empleado.aspx", false);
                 }
                 else
                 {

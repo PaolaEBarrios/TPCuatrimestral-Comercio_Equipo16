@@ -14,13 +14,13 @@ namespace Negocio
 			AccesoDatos datos = new AccesoDatos();
 			try
 			{
-				datos.setearQuery("Select id, usuario, pass, tipouser from Usuarios Where Usuario = @user AND Pass = @pass");
+				datos.setearQuery("Select Id, usuario, pass, tipouser from Usuarios Where Usuario = @user AND Pass = @pass");
 				datos.setParameters("@user", usuario.User);
                 datos.setParameters("@pass", usuario.Pass);
 				datos.ejecutarLectura();
 				while (datos.Lector.Read())
 				{
-					usuario.id = (int)datos.Lector["id"];
+					usuario.id = (int)datos.Lector["Id"];
 					usuario.TipoUsuario = (int)(datos.Lector["tipouser"]) == 2 ? TipoUsuario.ADMIN : TipoUsuario.VENDEDOR;
 					return true;
 				}
@@ -31,6 +31,12 @@ namespace Negocio
 
 				throw ex;
 			}
+			finally
+			{
+
+             datos.cerrarConexion();	
+			}
         }
+
     }
 }

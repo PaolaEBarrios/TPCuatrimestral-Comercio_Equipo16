@@ -33,13 +33,13 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.LinkButton lbtnConfiguracion;
 
         /// <summary>
-        /// Control btnAdmistrar.
+        /// Control btnCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmistrar;
+        protected global::System.Web.UI.WebControls.Button btnCompra;
 
         /// <summary>
         /// Control btnVentas.
@@ -51,12 +51,48 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnVentas;
 
         /// <summary>
-        /// Control btnCompras.
+        /// Control btnProveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCompras;
+        protected global::System.Web.UI.WebControls.Button btnProveedores;
+
+        /// <summary>
+        /// Control btnMarcas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMarcas;
+
+        /// <summary>
+        /// Control btnCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCategoria;
+
+        /// <summary>
+        /// Control btnClientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClientes;
+
+        /// <summary>
+        /// Control btnProductos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProductos;
     }
 }
