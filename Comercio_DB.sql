@@ -79,3 +79,14 @@ CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   FOREIGN KEY (id_venta) REFERENCES Ventas(id),
   FOREIGN KEY (id_producto) REFERENCES Productos(id)
 )
+Go
+CREATE TABLE Usuarios (
+    [Id]       INT          IDENTITY (1, 1) NOT NULL,
+    [Usuario]  VARCHAR (50) NULL,
+    [Pass]     VARCHAR (50) NULL,
+    [TipoUser] INT          NULL,
+    CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED ([Id] ASC)
+)
+
+insert into Usuarios VALUES ('admin', 'admin', 2)
+Select id, usuario, pass, tipouser from Usuarios Where usuario = 'test' AND pass = 'test'
