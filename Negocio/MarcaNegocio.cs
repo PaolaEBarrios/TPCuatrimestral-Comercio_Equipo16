@@ -143,7 +143,35 @@ namespace Negocio
             }
         }
 
+        public string TraerNombreMarca(string id)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+
+                
+                datos.setearQuery("select nombre from Marcas where id =" + id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    string nombre =(string) datos.Lector["nombre"];
+                    return nombre;
+                }
+
+                return "";
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

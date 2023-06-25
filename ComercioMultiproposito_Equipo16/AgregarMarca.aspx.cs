@@ -15,14 +15,24 @@ namespace ComercioMultiproposito_Equipo16
         {
             if (Request.QueryString["id"] != null)
             {
+                MarcaNegocio negocio = new MarcaNegocio();
+
                 lblAgregarMarca.Visible = false;
                 btnAgregarMarca.Visible=false;
+
+                string nom=Request.QueryString["id"];
+
+                string cadena = negocio.TraerNombreMarca(nom);
+                lblModificar.Text +=cadena;
             }
             else
             {
                 lblModificar.Visible = false;
                 btnModificar.Visible = false;
             }
+
+            
+
         }
 
         protected void btnAgregarMarca_Click(object sender, EventArgs e)
@@ -54,6 +64,11 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Marcas.aspx");
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

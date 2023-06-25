@@ -33,6 +33,20 @@
             padding:20px;
         }
 
+        .h2_ModificarMarca
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:20px;
+        }
+
+        .form_agregar-btnModificar
+        {
+            padding:10px;
+        }
+
     </style>
 
     <div class="h2_AddMarca">
@@ -40,8 +54,8 @@
 
     </div>
 
-    <div>
-        <asp:Label ID="lblModificar" runat="server" Text="Modificar Marca"></asp:Label>
+    <div class="h2_ModificarMarca">
+        <asp:Label ID="lblModificar" runat="server" Text="Modificar Marca: "></asp:Label>
     </div>
 
     <div class="form_agregar">
@@ -57,7 +71,10 @@
             <asp:Button ID="btnAgregarMarca" cssclass="btn btn-primary" runat="server" Text="Añadir nueva marca" Onclick="btnAgregarMarca_Click"/>
         </div>
 
-        <asp:Button ID="btnModificar" runat="server" Text="Modificar" />
+        <div class="form_agregar-btnModificar">
+            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="btnModificar_Click" />
+        </div>
+        
 
         <div class="form_agregar-btnVolver">
             <asp:Button ID="btnVolver" runat="server" cssclass="btn btn-primary" Text="Volver atras" OnClick="btnVolver_Click"   />

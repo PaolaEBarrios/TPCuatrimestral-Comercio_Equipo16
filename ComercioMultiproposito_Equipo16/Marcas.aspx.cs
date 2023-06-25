@@ -47,30 +47,37 @@ namespace ComercioMultiproposito_Equipo16
         protected void dgvMarcas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
-            
 
-            if (e.CommandName == "Modificar")
+            try
+            {
+                if (e.CommandName == "Modificar")
+                {
+
+                    string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();
+
+                    Response.Redirect("AgregarMarca.aspx?id=" + codigo);
+
+                }
+                else if (e.CommandName == "Eliminar")
+                {
+
+                    string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();
+
+                    MarcaNegocio negocio = new MarcaNegocio();
+
+                    negocio.EliminarMarca(codigo);
+
+                    Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
+                                                               //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
+
+                }
+            }
+            catch (Exception ex)
             {
 
-                string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();
-
-                Response.Redirect("AgregarMarca.aspx?id=" + codigo);
-            
+                throw ex;
             }
-            else if(e.CommandName == "Eliminar")
-            {
 
-                string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();//el codigo no es el de la row
-
-                MarcaNegocio negocio = new MarcaNegocio();
-
-                negocio.EliminarMarca(codigo);
-                
-                Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
-                //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
-
-            }
-        
         }
 
     }
