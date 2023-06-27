@@ -8,15 +8,15 @@ namespace Dominio
 {
     public class Persona
     {
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public Contacto contacto { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public Contacto Contacto { get; set; }
 
-        public Tipo tipo { get; set; }
+        public Tipo Tipo { get; set; }
 
-        public string dni { get; set; }
+        public string Dni { get; set; }
 
-        public string cuit { get; set; }
+        public string Cuit { get; set; }
 
 
     }

@@ -8,8 +8,8 @@ namespace Dominio
 {
     public class Proveedor:Persona
     {
-        public int codigo { get; set; }
-        public Producto producto { get; set; }
+        public int Codigo { get; set; }
+        public Producto Producto { get; set; }
         
     }
 }

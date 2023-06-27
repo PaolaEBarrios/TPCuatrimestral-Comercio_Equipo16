@@ -4,26 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+
 namespace Negocio
 {
-    public class MarcaNegocio
+    public class CategoriaNegocio
     {
-
-        public List<Marca> listar()
+        public List<Categoria> listar()
         {
-            List<Marca> lista = new List<Marca>();
+            List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
 
 
             try
             {
-                datos.setearQuery("Select m.id as Id,m.nombre as Nombre from Marcas as m");
+                datos.setearQuery("Select c.id as Id,c.nombre as Nombre from Categorias as c");
 
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Marca aux = new Marca();
+                    Categoria aux = new Categoria();
 
 
 
@@ -31,7 +31,7 @@ namespace Negocio
                         aux.Codigo = (int)datos.Lector["Id"];
 
                     if (!(datos.Lector["Nombre"] is DBNull))
-                        aux.NombreMarca = (string)datos.Lector["Nombre"];
+                        aux.NombreCategoria = (string)datos.Lector["Nombre"];
 
                     lista.Add(aux);
                 }
@@ -47,7 +47,85 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
+        }
 
+        public void EliminarCategoria(string codigo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearQuery("delete from Categorias where id= " + codigo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public string TraerNombreCategoria(string id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+
+                datos.setearQuery("select nombre from Categorias where id =" + id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    string nombre = (string)datos.Lector["nombre"];
+                    return nombre;
+                }
+
+                return "";
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+        public bool ExisteNombreCategoria(string nombre)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearQuery("select id from Categorias where nombre = '" + nombre + "'");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
 
@@ -58,7 +136,7 @@ namespace Negocio
             {
 
                 int cont = 0;
-                datos.setearQuery("select top(1) id from Marcas order by id desc");
+                datos.setearQuery("select top(1) id from Categorias order by id desc");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -79,13 +157,13 @@ namespace Negocio
             }
         }
 
-        public void AgregarMarca(Marca marca)
+        public void AgregarCategoria(Categoria categoria)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearQuery("Insert into MARCAS (id, Nombre)  values (" + marca.Codigo + ", '" + marca.NombreMarca + "')");
+                datos.setearQuery("Insert into Categorias (id, Nombre)  values (" + categoria.Codigo + ", '" + categoria.NombreCategoria + "')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -98,88 +176,12 @@ namespace Negocio
             }
         }
 
-        public void EliminarMarca(string codigo)
+        public void ModificarCategoria(string id,string nombre)
         {
-
-            AccesoDatos datos = new AccesoDatos();
-
+            AccesoDatos datos=new AccesoDatos();
             try
             {
-                datos.setearQuery("delete from Marcas where id= "+codigo);
-                datos.ejecutarAccion();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-        }
-        public bool ExisteNombreMarca(string nombre)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try
-            {
-                datos.setearQuery("select id from Marcas where nombre = '" + nombre + "'");
-                datos.ejecutarLectura();
-
-                while (datos.Lector.Read())
-                {
-                    return true;
-                }
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-        }
-
-        public string TraerNombreMarca(string id)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try
-            {
-
-                
-                datos.setearQuery("select nombre from Marcas where id =" + id);
-                datos.ejecutarLectura();
-
-                while (datos.Lector.Read())
-                {
-                    string nombre =(string) datos.Lector["nombre"];
-                    return nombre;
-                }
-
-                return "";
-                
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-        }
-
-
-        public void ModificarMarca(string id, string nombre)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.setearQuery("update Marcas set nombre = '" + nombre + "' where id = " + id);
+                datos.setearQuery("update Categorias set nombre = '" + nombre + "' where id = " + id);
                 datos.ejecutarAccion();
 
             }
@@ -188,11 +190,11 @@ namespace Negocio
 
                 throw ex;
             }
-            finally
-            {
+            finally {
                 datos.cerrarConexion();
             }
         }
-
     }
+   
+
 }

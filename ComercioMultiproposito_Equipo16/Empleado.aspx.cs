@@ -41,7 +41,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnCategoria_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Categoria.apx");
+            Response.Redirect("Categorias.aspx");
         }
 
         protected void btnClientes_Click(object sender, EventArgs e)

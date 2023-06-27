@@ -8,9 +8,9 @@ namespace Dominio
 {
     public class Factura
     {
-        public int codigo { get; set; }
-        public Venta venta { get; set; }
-        public DateTime fecha { get; set; }
-        public decimal total { get; set; }
+        public int Codigo { get; set; }
+        public Venta Venta { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
     }
 }

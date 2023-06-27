@@ -67,9 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddModCategoria.aspx" />
     <Content Include="Administrar.aspx" />
     <Content Include="AgregarMarca.aspx" />
-    <Content Include="Categoria.aspx" />
+    <Content Include="Categorias.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="Compra.aspx" />
     <Content Include="Default.aspx" />
@@ -83,6 +84,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddModCategoria.aspx.cs">
+      <DependentUpon>AddModCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddModCategoria.aspx.designer.cs">
+      <DependentUpon>AddModCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrar.aspx.cs">
       <DependentUpon>Administrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,12 +105,12 @@
     <Compile Include="AgregarMarca.aspx.designer.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Categoria.aspx.cs">
-      <DependentUpon>Categoria.aspx</DependentUpon>
+    <Compile Include="Categorias.aspx.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Categoria.aspx.designer.cs">
-      <DependentUpon>Categoria.aspx</DependentUpon>
+    <Compile Include="Categorias.aspx.designer.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>

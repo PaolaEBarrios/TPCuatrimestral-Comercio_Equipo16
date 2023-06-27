@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class Empleado
     {
-        public int legajo { get; set; }
+        public int Legajo { get; set; }
         
     }
 }

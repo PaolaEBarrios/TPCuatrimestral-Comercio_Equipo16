@@ -40,23 +40,31 @@ namespace ComercioMultiproposito_Equipo16
             MarcaNegocio negocio = new MarcaNegocio();
             string nombre=txtNombreMarca.Text;
 
-
-            if (negocio.buscarNombreMarca(nombre) == false)
+            if(nombre != "")
             {
-                Marca aux = new Marca();
+                if (negocio.ExisteNombreMarca(nombre) == false)
+                {
+                    Marca aux = new Marca();
 
-                aux.Codigo = negocio.TraerUltimoId();
-                aux.NombreMarca = nombre;
+                    aux.Codigo = negocio.TraerUltimoId();
+                    aux.NombreMarca = nombre;
 
-                negocio.AgregarMarca(aux);
-                lblAviso.Text = "MARCA AÑADIDA CORRECTAMENTE";
-                lblAviso.ForeColor = System.Drawing.Color.Green;
+                    negocio.AgregarMarca(aux);
+                    lblAviso.Text = "MARCA AÑADIDA CORRECTAMENTE";
+                    lblAviso.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblAviso.Text = "LA MARCA YA EXISTE";
+                    lblAviso.ForeColor = System.Drawing.Color.Red;
+                }
             }
             else
             {
-                lblAviso.Text = "LA MARCA YA EXISTE";
+                lblAviso.Text = "MARCA SIN NOMBRE, POR FAVOR INGRESE UNA NOMBRE PARA LA MARCA";
                 lblAviso.ForeColor = System.Drawing.Color.Red;
             }
+            
             
 
         }
@@ -68,7 +76,22 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            MarcaNegocio negocio = new MarcaNegocio();
+            string id = Request.QueryString["id"];
 
+            string nombre = txtNombreMarca.Text;
+
+            if (nombre != "")
+            {
+                negocio.ModificarMarca(id, nombre);
+                lblAviso.Text = "MARCA MODIFICADA CORRECTAMENTE";
+                lblAviso.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblAviso.Text = "POR FAVOR CARGUE UNA MARCA";
+                lblAviso.ForeColor = System.Drawing.Color.Red;
+            }
         }
     }
 }
