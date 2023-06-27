@@ -36,7 +36,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnProveedores_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Proveedor.aspx");
+            Response.Redirect("Proveedores.aspx");
         }
 
         protected void btnCategoria_Click(object sender, EventArgs e)

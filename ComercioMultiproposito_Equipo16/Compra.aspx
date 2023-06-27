@@ -9,4 +9,6 @@
     <p>productos con stock en minimo</p>
     <p>compras pedidas a fecha limite dar aviso que no fue concluida- comunicarse con el proveedor X</p>
 
+    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
 </asp:Content>

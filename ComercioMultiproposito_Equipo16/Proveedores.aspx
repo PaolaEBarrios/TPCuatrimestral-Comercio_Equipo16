@@ -7,6 +7,8 @@
 
 
     </asp:GridView>
+
+    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
    
 
 </asp:Content>

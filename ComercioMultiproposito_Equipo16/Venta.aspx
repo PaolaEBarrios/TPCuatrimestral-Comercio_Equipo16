@@ -11,4 +11,6 @@
         total de ventas del mes para admin todos los vendedores, para vendedores, mostrar lo total vendido, 
     </p>
 
+    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
 </asp:Content>

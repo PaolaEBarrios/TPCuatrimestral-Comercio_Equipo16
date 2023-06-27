@@ -8,7 +8,7 @@
         <asp:Button ID="btnFiltrarCliente" runat="server" Text="Buscar"  CssClass="btn btn primary"/>
     </div>
 
-
+    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
 
 
 
