@@ -12,7 +12,6 @@ namespace ComercioMultiproposito_Equipo16
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //List<Marcas> articuloList = new List<Marcas>();
 
             try
             {
