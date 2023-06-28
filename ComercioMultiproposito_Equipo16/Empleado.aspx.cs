@@ -5,18 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using Negocio;
 namespace ComercioMultiproposito_Equipo16
 {
     public partial class Empleado : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario usuario = Session["usuario"] != null ? (Usuario)Session["usuario"]: null;
-            if (!(usuario != null && usuario.Id != 0))
+
+            if (!Seguridad.sesionActiva(Session["usuario"]))
                 Response.Redirect("Login.aspx", false);
-
-
-
         }
 
         protected void btnAdmistrar_Click(object sender, EventArgs e)
