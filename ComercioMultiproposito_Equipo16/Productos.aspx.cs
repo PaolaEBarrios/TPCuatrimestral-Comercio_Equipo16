@@ -62,6 +62,10 @@ namespace ComercioMultiproposito_Equipo16
                                                               
 
                 }
+                else if(e.CommandName == "Detalles")
+                {
+                    Response.Redirect("DetallesProductos.aspx");
+                }
             }
             catch (Exception ex)
             {
@@ -72,7 +76,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AgregarProducto.aspx");
         }
     }
 }

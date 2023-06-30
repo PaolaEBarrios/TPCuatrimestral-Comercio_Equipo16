@@ -68,6 +68,82 @@ namespace Negocio
 
         }
 
+        public void EliminarProducto(string codigo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearQuery("delete from Productos where id= " + codigo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public int TraerUltimoId()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+                int cont = 0;
+                datos.setearQuery("select top(1) id from Productos order by id desc");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    cont = (int)datos.Lector["id"];
+                }
+
+                return cont + 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public void Agregar(Producto aux)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "INSERT INTO Productos (Id, Nombre, id_marca, Ganancia, Stock_actual, Stock_minimo, Precio, Descripcion, id_categoria) VALUES ";
+                consulta += "(" + aux.Codigo + ", '" + aux.NombreProducto + "', " + aux.Marca.Codigo + ", " + aux.Ganancia + ", " + aux.Stock + ", " + aux.StockMin + ", " + aux.Precio + ", '" + aux.Descripcion + "', " + aux.Categoria.Codigo + ")";
+
+                datos.setearQuery(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
 
     }
+
+
+
 }

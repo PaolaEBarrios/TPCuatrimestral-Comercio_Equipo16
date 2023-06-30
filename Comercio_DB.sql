@@ -39,6 +39,13 @@ CREATE TABLE Productos (
   FOREIGN KEY (id_marca) REFERENCES Marcas(id),
   FOREIGN KEY (id_categoria) REFERENCES Categorias(id)
 )
+
+ALTER TABLE productos
+ADD descripcion varchar(100)
+
+alter table productos
+add ganancia int
+
 Go
 CREATE TABLE Proveedores_Productos ( --RELACIONAR PRODUCTOS Y PROVEEDORES--
   id_proveedor INT,

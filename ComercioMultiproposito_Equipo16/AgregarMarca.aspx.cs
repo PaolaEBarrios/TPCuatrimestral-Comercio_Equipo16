@@ -64,8 +64,6 @@ namespace ComercioMultiproposito_Equipo16
                 lblAviso.Text = "MARCA SIN NOMBRE, POR FAVOR INGRESE UNA NOMBRE PARA LA MARCA";
                 lblAviso.ForeColor = System.Drawing.Color.Red;
             }
-            
-            
 
         }
 

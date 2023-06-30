@@ -49,6 +49,32 @@ namespace Negocio
             }
         }
 
+        public int TraerIDGuardar(string nombre)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int codigo = 0;
+
+            try
+            {
+                datos.setearQuery("select id from Categorias where nombre = '" + nombre + "'");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    return codigo = (int)datos.Lector["id"];
+                }
+
+                return codigo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void EliminarCategoria(string codigo)
         {
 
