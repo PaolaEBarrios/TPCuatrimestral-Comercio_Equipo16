@@ -78,7 +78,7 @@
                         <asp:BoundField HeaderText="Codigo" DataField="Codigo" Visible="false" />
                         <asp:BoundField HeaderText="Proveedores" DataField="Nombre" />
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
-                        
+                        <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                     </Columns>
 
     </asp:GridView>

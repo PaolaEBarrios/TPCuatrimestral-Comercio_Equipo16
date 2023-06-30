@@ -66,7 +66,7 @@ namespace ComercioMultiproposito_Equipo16
 
                     negocio.EliminarProveedor(codigo);
 
-                    //Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
+                    Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
                                                                //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
 
                 }

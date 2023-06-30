@@ -105,7 +105,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("delete from Proveedor where id= "+codigo);
+                datos.setearQuery("delete from Proveedores where id= "+codigo);
                 datos.ejecutarAccion();
             }
             catch(Exception ex)
