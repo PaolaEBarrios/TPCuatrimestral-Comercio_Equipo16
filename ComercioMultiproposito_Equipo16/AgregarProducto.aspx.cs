@@ -19,10 +19,26 @@ namespace ComercioMultiproposito_Equipo16
             {
                 btnAgregar.Visible = false;
 
-                //Modificar
-                if (!IsPostBack)
+                int id = int.Parse(Request.QueryString["id"]);
+
+                List<Producto> listProductos = new List<Producto>();
+
+                listProductos = negocio.TraerUnRegistro(id);
+                if(!IsPostBack)
                 {
-                    try
+                    txtCodigo.Text = listProductos[0].Codigo.ToString();
+                    txtDescripcion.Text = listProductos[0].Descripcion;
+                    txtGanancia.Text = listProductos[0].Ganancia.ToString();
+                    txtPrecio.Text = listProductos[0].Precio.ToString();
+                    txtProducto.Text = listProductos[0].NombreProducto;
+                    txtStock.Text = listProductos[0].Stock.ToString();
+                    txtStockMin.Text = listProductos[0].StockMin.ToString();
+
+                }
+
+                //Modificar
+
+                try
                     {
 
                         MarcaNegocio marcaNegocio = new MarcaNegocio();
@@ -40,13 +56,12 @@ namespace ComercioMultiproposito_Equipo16
 
                         throw ex;
                     }
-                }
+                
             }
             else
             {
                 //Agregar
-                if (!IsPostBack)
-                {
+               
                     try
                     {
 
@@ -72,7 +87,7 @@ namespace ComercioMultiproposito_Equipo16
                         throw ex;
                     }
 
-                }
+                
             }
         }
 
@@ -129,7 +144,51 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnModificar_Click(object sender, EventArgs e)
         {
 
+            ProductoNegocio negocio = new ProductoNegocio();
 
+
+            try
+            {
+
+
+                Producto aux = new Producto();
+
+                aux.Codigo = int.Parse(txtCodigo.Text);
+                aux.NombreProducto = txtProducto.Text;
+
+
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                aux.Marca = new Marca();
+                string nombre = ddListMarca.SelectedItem.Text;
+                aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
+
+                aux.Ganancia = int.Parse(txtGanancia.Text);
+                aux.Stock = int.Parse(txtStock.Text);
+                aux.StockMin = int.Parse(txtStockMin.Text);
+                string precioTexto = txtPrecio.Text.Replace(",", ".");
+                aux.Precio = decimal.Parse(precioTexto);
+                aux.Descripcion = txtDescripcion.Text;
+
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
+                aux.Categoria = new Categoria();
+                nombre = ddListCategoria.SelectedItem.Text;
+
+                aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+
+
+                negocio.Modificar(aux);
+
+
+                lblAviso.Text = "PRODUCTO Modificado CORRECTAMENTE";
+                lblAviso.ForeColor = System.Drawing.Color.Green;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
 
