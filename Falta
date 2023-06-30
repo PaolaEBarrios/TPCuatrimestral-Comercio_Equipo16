@@ -11,7 +11,7 @@ PROVEEDORES(listo)
 CLIENTES(listo)
 
 PRODUCTOS(EL MAS LARGO A DESARROLLAR)
--AGREGAR(falta desarrollar)
+-AGREGAR(falta desarrollar FORMULARIO DE AGREGADO)
 -MOSTRAR(falta agregar ventana detalles)
 -MODIFICAR (falta)
 -ELIMINAR (falta)
