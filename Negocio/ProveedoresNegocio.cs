@@ -151,7 +151,7 @@ namespace Negocio
             {
 
                 
-                datos.setearQuery("select nombre from Proveedor where id =" + id);
+                datos.setearQuery("select nombre from Proveedores where id =" + id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -179,7 +179,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("update Proveedor set nombre = '" + nombre + "' where id = " + id);
+                datos.setearQuery("update Proveedores set nombre = '" + nombre + "' where id = " + id);
                 datos.ejecutarAccion();
 
             }
