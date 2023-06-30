@@ -76,9 +76,13 @@
         <Columns>
 
                         <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
-                        <asp:BoundField HeaderText="Clientes" DataField="Nombre" />
+                        <asp:BoundField HeaderText=" Nombre " DataField="Nombre" />
+                        <asp:BoundField HeaderText=" Apellido " DataField="Apellido"  />
+                        <asp:BoundField HeaderText=" DNI " DataField="DNI"/>
+                        
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
+                        <asp:ButtonField CommandName="Detalles" Text="Detalles" ButtonType="Button" />
                     </Columns>
 
     </asp:GridView>

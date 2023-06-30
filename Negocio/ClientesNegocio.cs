@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Select p.id as Id,p.nombre as Nombre from Clientes as p");
+                datos.setearQuery("Select p.id as Id,p.nombre as Nombre, p.apellido as Apellido,p.dni as DNI from Clientes as p");
 
                 datos.ejecutarLectura();
 
@@ -32,6 +32,15 @@ namespace Negocio
 
                     if (!(datos.Lector["Nombre"] is DBNull))
                         aux.Nombre = (string)datos.Lector["Nombre"];
+
+
+
+                    if (!(datos.Lector["Apellido"] is DBNull))
+                        aux.Apellido = (string)datos.Lector["Apellido"];
+
+                    if (!(datos.Lector["DNI"] is DBNull))
+                        aux.Dni = (string)datos.Lector["DNI"];
+
 
                     lista.Add(aux);
                 }

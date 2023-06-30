@@ -70,6 +70,10 @@ namespace ComercioMultiproposito_Equipo16
                                                                //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
 
                 }
+                else if(e.CommandName == "Detalles")
+                {
+                    Response.Redirect("ClienteDetalles.aspx");
+                }
             }
             catch (Exception ex)
             {

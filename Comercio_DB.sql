@@ -10,6 +10,13 @@ CREATE TABLE Clientes (
   correo VARCHAR(100)
 )
 Go
+alter table clientes
+add dni varchar(9)
+go
+
+alter table clientes 
+add apellido varchar(100)
+go
 CREATE TABLE Proveedores (
   id INT PRIMARY KEY,
   nombre VARCHAR(100),

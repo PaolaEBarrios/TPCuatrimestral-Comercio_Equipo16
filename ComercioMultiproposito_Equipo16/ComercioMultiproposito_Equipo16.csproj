@@ -74,6 +74,7 @@
     <Content Include="AgregarProducto.aspx" />
     <Content Include="AgregarProveedores.aspx" />
     <Content Include="Categorias.aspx" />
+    <Content Include="ClienteDetalles.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="Compra.aspx" />
     <Content Include="Default.aspx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteDetalles.aspx.cs">
+      <DependentUpon>ClienteDetalles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClienteDetalles.aspx.designer.cs">
+      <DependentUpon>ClienteDetalles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
