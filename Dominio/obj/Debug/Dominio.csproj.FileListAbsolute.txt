@@ -58,3 +58,9 @@ C:\Users\pbarr\OneDrive\Escritorio\tpweb\TPCuatrimestral-Comercio_Equipo16\Domin
 C:\Users\pbarr\OneDrive\Escritorio\tpweb\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\pbarr\OneDrive\Escritorio\tpweb\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.dll
 C:\Users\pbarr\OneDrive\Escritorio\tpweb\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\bin\Debug\Dominio.pdb
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.dll
+C:\Users\pbarr\OneDrive\Escritorio\TPWEN\TPCuatrimestral-Comercio_Equipo16\Dominio\obj\Debug\Dominio.pdb
