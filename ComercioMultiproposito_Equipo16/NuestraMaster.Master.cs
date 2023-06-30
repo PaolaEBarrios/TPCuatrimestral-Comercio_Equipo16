@@ -13,12 +13,12 @@ namespace ComercioMultiproposito_Equipo16
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!(Page is Login))
+           /// if (!(Page is Login))
             {
 
 
-                if (!Seguridad.sesionActiva(Session["usuario"]))
-                    Response.Redirect("Login.aspx", false);
+               /// if (!Seguridad.sesionActiva(Session["usuario"]))
+                   /// Response.Redirect("Login.aspx", false);
             }
 
             
