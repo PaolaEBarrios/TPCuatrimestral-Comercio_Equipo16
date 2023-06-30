@@ -70,6 +70,7 @@
     <Content Include="AddModCategoria.aspx" />
     <Content Include="Administrar.aspx" />
     <Content Include="AgregarMarca.aspx" />
+    <Content Include="AgregarClientes.aspx" />
     <Content Include="AgregarProveedores.aspx" />
     <Content Include="Categorias.aspx" />
     <Content Include="Clientes.aspx" />
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="AgregarMarca.aspx.designer.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarClientes.aspx.cs">
+      <DependentUpon>AgregarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarClientes.aspx.designer.cs">
+      <DependentUpon>AgregarClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarProveedores.aspx.cs">
       <DependentUpon>AgregarProveedores.aspx</DependentUpon>

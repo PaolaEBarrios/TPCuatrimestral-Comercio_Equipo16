@@ -98,14 +98,14 @@ namespace Negocio
             }
         }
 
-        public void EliminarCliente(string codigo)
+        public void EliminarCliente(string Id)
         {
 
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearQuery("delete from Clientes where id= " + codigo);
+                datos.setearQuery("delete from Clientes where id= " + Id);
                 datos.ejecutarAccion();
             }
             catch(Exception ex)

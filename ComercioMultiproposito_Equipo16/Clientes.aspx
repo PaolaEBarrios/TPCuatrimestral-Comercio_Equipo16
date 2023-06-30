@@ -72,10 +72,10 @@
     <div class="cajaDGV">
         <div class="row">
             <div class="col">
-    <asp:GridView ID="dgvClientes" OnRowCommand="dgvClientes_RowCommand"  OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged" DataKeyNames="Codigo" runat="server" CssClass="table table-dark " AutoGenerateColumns="false">
+    <asp:GridView ID="dgvClientes" OnRowCommand="dgvClientes_RowCommand"  OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged" DataKeyNames="Id" runat="server" CssClass="table table-dark " AutoGenerateColumns="false">
         <Columns>
 
-                        <asp:BoundField HeaderText="Codigo" DataField="Codigo" Visible="false" />
+                        <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
                         <asp:BoundField HeaderText="Clientes" DataField="Nombre" />
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />

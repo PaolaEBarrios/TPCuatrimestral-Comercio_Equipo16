@@ -40,7 +40,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnAgregarClientes_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("AgregarProveedores.aspx");
+            Response.Redirect("AgregarClientes.aspx");
         }
 
         protected void dgvClientes_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -54,7 +54,7 @@ namespace ComercioMultiproposito_Equipo16
 
                     string codigo = dgvClientes.DataKeys[rowIndex].Value.ToString();
 
-                    //Response.Redirect("AgregarClientes.aspx?id=" + codigo);
+                    Response.Redirect("AgregarClientes.aspx?id=" + codigo);
 
                 }
                 else if (e.CommandName == "Eliminar")
