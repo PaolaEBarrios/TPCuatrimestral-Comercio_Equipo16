@@ -39,10 +39,10 @@ CREATE TABLE Productos (
   FOREIGN KEY (id_marca) REFERENCES Marcas(id),
   FOREIGN KEY (id_categoria) REFERENCES Categorias(id)
 )
-
+go
 ALTER TABLE productos
 ADD descripcion varchar(100)
-
+go
 alter table productos
 add ganancia int
 
