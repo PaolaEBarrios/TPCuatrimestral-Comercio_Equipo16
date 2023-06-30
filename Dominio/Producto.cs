@@ -19,5 +19,8 @@ namespace Dominio
         public int StockMin { get; set; }
 
 
+
+
+
     }
 }

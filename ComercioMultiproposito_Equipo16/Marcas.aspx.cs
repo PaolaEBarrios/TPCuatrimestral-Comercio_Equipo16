@@ -45,14 +45,14 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void dgvMarcas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            int IndiceFila = Convert.ToInt32(e.CommandArgument);
 
             try
             {
                 if (e.CommandName == "Modificar")
                 {
 
-                    string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();
+                    string codigo = dgvMarcas.DataKeys[IndiceFila].Value.ToString();
 
                     Response.Redirect("AgregarMarca.aspx?id=" + codigo);
 
@@ -60,7 +60,7 @@ namespace ComercioMultiproposito_Equipo16
                 else if (e.CommandName == "Eliminar")
                 {
 
-                    string codigo = dgvMarcas.DataKeys[rowIndex].Value.ToString();
+                    string codigo = dgvMarcas.DataKeys[IndiceFila].Value.ToString();
 
                     MarcaNegocio negocio = new MarcaNegocio();
 
