@@ -101,35 +101,47 @@ namespace ComercioMultiproposito_Equipo16
             {
 
                 Producto aux = new Producto();
-
+                            
                 aux.Codigo =int.Parse(txtCodigo.Text);
                 aux.NombreProducto = txtProducto.Text;
 
-
-                MarcaNegocio marcaNegocio = new MarcaNegocio();
-                aux.Marca = new Marca();
-                string nombre= ddListMarca.SelectedItem.Text;
-                aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
+                if (txtProducto.Text != "")
+                {
                     
-                aux.Ganancia = int.Parse(txtGanancia.Text);
-                aux.Stock = int.Parse(txtStock.Text);
-                aux.StockMin = int.Parse(txtStockMin.Text);
-                aux.Precio = int.Parse(txtPrecio.Text);
-                aux.Descripcion = txtDescripcion.Text;
 
-                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                aux.Categoria = new Categoria();
-                nombre = ddListCategoria.SelectedItem.Text;
+                    MarcaNegocio marcaNegocio = new MarcaNegocio();
+                    aux.Marca = new Marca();
+                    string nombre = ddListMarca.SelectedItem.Text;
+                    aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
 
-                aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+                    aux.Ganancia = int.Parse(txtGanancia.Text);
+                    aux.Stock = int.Parse(txtStock.Text);
+                    aux.StockMin = int.Parse(txtStockMin.Text);
+                    aux.Precio = int.Parse(txtPrecio.Text);
+                    aux.Descripcion = txtDescripcion.Text;
+
+                    CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
+                    aux.Categoria = new Categoria();
+                    nombre = ddListCategoria.SelectedItem.Text;
+
+                    aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+
+
+                    negocio.Agregar(aux);
+
+
+                    lblAviso.Text = "PRODUCTO AÑADIDO CORRECTAMENTE";
+                    lblAviso.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblAviso.Text = "Por favor ingrese un nombre al producto";
+                    txtProducto.BackColor = System.Drawing.Color.Red;
+                    lblAviso.ForeColor = System.Drawing.Color.Red;
+                }
                 
-                
-                negocio.Agregar(aux);
-
-
-                lblAviso.Text = "PRODUCTO AÑADIDO CORRECTAMENTE";
-                lblAviso.ForeColor = System.Drawing.Color.Green;
 
             }
             catch (Exception ex)
@@ -156,32 +168,42 @@ namespace ComercioMultiproposito_Equipo16
                 aux.Codigo = int.Parse(txtCodigo.Text);
                 aux.NombreProducto = txtProducto.Text;
 
+                if(txtProducto.Text== "")
+                {
+                    MarcaNegocio marcaNegocio = new MarcaNegocio();
+                    aux.Marca = new Marca();
+                    string nombre = ddListMarca.SelectedItem.Text;
+                    aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
 
-                MarcaNegocio marcaNegocio = new MarcaNegocio();
-                aux.Marca = new Marca();
-                string nombre = ddListMarca.SelectedItem.Text;
-                aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
+                    aux.Ganancia = int.Parse(txtGanancia.Text);
+                    aux.Stock = int.Parse(txtStock.Text);
+                    aux.StockMin = int.Parse(txtStockMin.Text);
+                    string precioTexto = txtPrecio.Text.Replace(",", ".");
+                    aux.Precio = decimal.Parse(precioTexto);
+                    aux.Descripcion = txtDescripcion.Text;
 
-                aux.Ganancia = int.Parse(txtGanancia.Text);
-                aux.Stock = int.Parse(txtStock.Text);
-                aux.StockMin = int.Parse(txtStockMin.Text);
-                string precioTexto = txtPrecio.Text.Replace(",", ".");
-                aux.Precio = decimal.Parse(precioTexto);
-                aux.Descripcion = txtDescripcion.Text;
+                    CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                    aux.Categoria = new Categoria();
+                    nombre = ddListCategoria.SelectedItem.Text;
 
-                aux.Categoria = new Categoria();
-                nombre = ddListCategoria.SelectedItem.Text;
-
-                aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
-
-
-                negocio.Modificar(aux);
+                    aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
 
 
-                lblAviso.Text = "PRODUCTO Modificado CORRECTAMENTE";
-                lblAviso.ForeColor = System.Drawing.Color.Green;
+                    negocio.Modificar(aux);
+
+                    lblAviso.Text = "PRODUCTO Modificado CORRECTAMENTE";
+                    lblAviso.ForeColor = System.Drawing.Color.Green;
+
+                }
+                else
+                {
+                    lblAviso.Text = "Por favor ingrese un nombre al producto";
+                    txtProducto.BackColor = System.Drawing.Color.Red;
+                    lblAviso.ForeColor = System.Drawing.Color.Red;
+                }
+
+
 
             }
             catch (Exception ex)
