@@ -17,6 +17,11 @@ go
 alter table clientes 
 add apellido varchar(100)
 go
+
+alter table clientes
+add codigoPostal varchar(6)
+go
+
 CREATE TABLE Proveedores (
   id INT PRIMARY KEY,
   nombre VARCHAR(100),

@@ -147,15 +147,21 @@ namespace Negocio
         {
             AccesoDatos datos = new AccesoDatos();
 
+            
+
             try
             {
+                string precio = aux.Precio.ToString();
+                precio=precio.Replace(",", ".");
+                
+
                 string consulta = "UPDATE Productos SET ";
                 consulta += "Nombre = '" + aux.NombreProducto + "', ";
                 consulta += "id_marca = " + aux.Marca.Codigo + ", ";
                 consulta += "Ganancia = " + aux.Ganancia + ", ";
                 consulta += "Stock_actual = " + aux.Stock + ", ";
                 consulta += "Stock_minimo = " + aux.StockMin + ", ";
-                consulta += "Precio = " + aux.Precio + ", ";
+                consulta += "Precio = " + precio + ", ";
                 consulta += "Descripcion = '" + aux.Descripcion + "', ";
                 consulta += "id_categoria = " + aux.Categoria.Codigo + " ";
                 consulta += "WHERE Id = " + aux.Codigo;
@@ -190,55 +196,58 @@ namespace Negocio
                 {
                     Producto aux = new Producto();
 
+                    if (cod == (int)datos.Lector["id"])
+                    {
+                        if (!(datos.Lector["Id"] is DBNull))
+                            aux.Codigo = (int)datos.Lector["Id"];
 
 
-                    if (!(datos.Lector["Id"] is DBNull))
-                        aux.Codigo = (int)datos.Lector["Id"];
+                        if (!(datos.Lector["Producto"] is DBNull))
+                            aux.NombreProducto = (string)datos.Lector["Producto"];
 
+                        aux.Marca = new Marca();
+                        if (!(datos.Lector["Marca"] is DBNull))
+                            aux.Marca.NombreMarca = (string)datos.Lector["Marca"];
+                        else
+                            aux.Marca.NombreMarca = "Sin Marca";
 
-                    if (!(datos.Lector["Producto"] is DBNull))
-                        aux.NombreProducto = (string)datos.Lector["Producto"];
+                        if (!(datos.Lector["idMarca"] is DBNull))
+                            aux.Marca.Codigo = (int)datos.Lector["idMarca"];
+                        //chequear que hacer si no pasa
+                        aux.Categoria = new Categoria();
+                        if (!(datos.Lector["Categoria"] is DBNull))
+                            aux.Categoria.NombreCategoria = (string)datos.Lector["Categoria"];
+                        else
+                            aux.Categoria.NombreCategoria = "Sin categoria";
 
-                    aux.Marca = new Marca();
-                    if (!(datos.Lector["Marca"] is DBNull))
-                        aux.Marca.NombreMarca = (string)datos.Lector["Marca"];
-                    else
-                        aux.Marca.NombreMarca = "Sin Marca";
+                        if (!(datos.Lector["Categoria"] is DBNull))
+                            aux.Categoria.Codigo = (int)datos.Lector["idCategoria"];
+                        //chequear que hacer si no pasa
 
-                    if (!(datos.Lector["idMarca"] is DBNull))
-                        aux.Marca.Codigo = (int)datos.Lector["idMarca"];
-                    //chequear que hacer si no pasa
-                    aux.Categoria = new Categoria();
-                    if (!(datos.Lector["Categoria"] is DBNull))
-                        aux.Categoria.NombreCategoria = (string)datos.Lector["Categoria"];
-                    else
-                        aux.Categoria.NombreCategoria = "Sin categoria";
+                        if (!(datos.Lector["Precio"] is DBNull))
+                            aux.Precio = (decimal)datos.Lector["Precio"];
 
-                    if (!(datos.Lector["Categoria"] is DBNull))
-                        aux.Categoria.Codigo = (int)datos.Lector["idCategoria"];
-                    //chequear que hacer si no pasa
+                        if (!(datos.Lector["Ganancia"] is DBNull))
+                            aux.Ganancia = (int)datos.Lector["Ganancia"];
+                        //lo mismo
 
-                    if (!(datos.Lector["Precio"] is DBNull))
-                        aux.Precio = (decimal)datos.Lector["Precio"];
+                        if (!(datos.Lector["Stock"] is DBNull))
+                            aux.Stock = (int)datos.Lector["Stock"];
+                        //lo mismo
 
-                    if (!(datos.Lector["Ganancia"] is DBNull))
-                        aux.Ganancia = (int)datos.Lector["Ganancia"];
-                    //lo mismo
+                        if (!(datos.Lector["StockMinimo"] is DBNull))
+                            aux.StockMin = (int)datos.Lector["StockMinimo"];
+                        //lo mismo
 
-                    if (!(datos.Lector["Stock"] is DBNull))
-                        aux.Stock = (int)datos.Lector["Stock"];
-                    //lo mismo
+                        if (!(datos.Lector["Descripcion"] is DBNull))
+                            aux.Descripcion = (string)datos.Lector["Descripcion"];
 
-                    if (!(datos.Lector["StockMinimo"] is DBNull))
-                        aux.StockMin = (int)datos.Lector["StockMinimo"];
-                    //lo mismo
+                        //lo mismo
 
-                    if (!(datos.Lector["Descripcion"] is DBNull))
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    //lo mismo
-
-                    lista.Add(aux);
+                        lista.Add(aux);
+                        return lista;
+                    }
+                    
                 }
 
                 return lista;

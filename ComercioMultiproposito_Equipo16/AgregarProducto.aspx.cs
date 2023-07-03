@@ -18,6 +18,7 @@ namespace ComercioMultiproposito_Equipo16
             if (Request.QueryString["id"] != null)
             {
                 btnAgregar.Visible = false;
+                lblAgregar.Visible = false;
 
                 int id = int.Parse(Request.QueryString["id"]);
 
@@ -30,6 +31,7 @@ namespace ComercioMultiproposito_Equipo16
                     txtDescripcion.Text = listProductos[0].Descripcion;
                     txtGanancia.Text = listProductos[0].Ganancia.ToString();
                     txtPrecio.Text = listProductos[0].Precio.ToString();
+                   
                     txtProducto.Text = listProductos[0].NombreProducto;
                     txtStock.Text = listProductos[0].Stock.ToString();
                     txtStockMin.Text = listProductos[0].StockMin.ToString();
@@ -69,6 +71,7 @@ namespace ComercioMultiproposito_Equipo16
                         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
                         btnModificar.Visible = false;
+                        lblModificar.Visible = false;    
 
                         int cod = negocio.TraerUltimoId();
                         txtCodigo.Text = cod.ToString();
@@ -168,7 +171,7 @@ namespace ComercioMultiproposito_Equipo16
                 aux.Codigo = int.Parse(txtCodigo.Text);
                 aux.NombreProducto = txtProducto.Text;
 
-                if(txtProducto.Text== "")
+                if((txtProducto.Text!= ""))
                 {
                     MarcaNegocio marcaNegocio = new MarcaNegocio();
                     aux.Marca = new Marca();
@@ -178,8 +181,9 @@ namespace ComercioMultiproposito_Equipo16
                     aux.Ganancia = int.Parse(txtGanancia.Text);
                     aux.Stock = int.Parse(txtStock.Text);
                     aux.StockMin = int.Parse(txtStockMin.Text);
-                    string precioTexto = txtPrecio.Text.Replace(",", ".");
-                    aux.Precio = decimal.Parse(precioTexto);
+
+                    aux.Precio = decimal.Parse(txtPrecio.Text);
+
                     aux.Descripcion = txtDescripcion.Text;
 
                     CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
