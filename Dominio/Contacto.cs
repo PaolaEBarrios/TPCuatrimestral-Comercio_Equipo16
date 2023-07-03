@@ -9,7 +9,14 @@ namespace Dominio
     public class Contacto
     {
         public string domicilio { get; set; }
+
+        public override string ToString()
+        {
+            return domicilio;
+        }
         public string telefono { get; set; }
+
+
         public string email { get; set; }
         public string cp { get; set; }
 

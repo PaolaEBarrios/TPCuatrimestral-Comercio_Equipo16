@@ -20,10 +20,30 @@ namespace ComercioMultiproposito_Equipo16
                 lblAgregarClientes.Visible = false;
                 btnAgregarClientes.Visible = false;
 
-                string nom = Request.QueryString["id"];
+                int num = int.Parse(Request.QueryString["id"]);
 
-                string cadena = negocio.TraerNombreCliente(nom);
-                lblModificarClientes.Text += cadena;
+                List<Cliente> listaCliente = new List<Cliente>();
+
+                listaCliente = negocio.TraerUnRegistro(num);
+                if (!IsPostBack)
+                {
+
+                    txtNombreClientes.Text = listaCliente[0].Nombre;
+                    
+                    txtDni.Text=listaCliente[0].Dni;
+                    
+                    txtEmail.Text = listaCliente[0].Contacto.email;
+                    txtApellido.Text = listaCliente[0].Apellido;
+                    txtCP.Text = listaCliente[0].Contacto.cp;
+                    txtDni.Text = listaCliente[0].Dni;
+                    txtDomicilio.Text = listaCliente[0].Contacto.domicilio;
+                    txtTelefono.Text = listaCliente[0].Contacto.telefono;
+
+                    
+                }
+
+
+                
             }
             else
             {
@@ -113,17 +133,69 @@ namespace ComercioMultiproposito_Equipo16
             ClientesNegocio negocio = new ClientesNegocio();
             string id = Request.QueryString["id"];
 
-            string nombre = txtNombreClientes.Text;
+            string dni = txtDni.Text;
 
-            if (nombre != "")
+            if (dni != "")
             {
-                negocio.ModificarCliente(id, nombre);
-                lblAvisoClientes.Text = "CLIENTE MODIFICADO CORRECTAMENTE";
-                lblAvisoClientes.ForeColor = System.Drawing.Color.Green;
+
+
+
+                if (negocio.ExisteCuitDni(dni) == false || dni==txtDni.Text)
+                {
+                    Cliente aux = new Cliente();
+
+                    aux.Id = negocio.TraerUltimoId();
+                    aux.Dni = dni;
+
+
+
+                    if (txtTelefono.Text != "" || txtEmail.Text != "")
+                    {
+                        aux.Contacto = new Contacto();
+
+                        aux.Contacto.telefono = txtTelefono.Text;
+                        aux.Contacto.domicilio = txtDomicilio.Text;
+                        aux.Contacto.email = txtEmail.Text;
+                        aux.Apellido = txtApellido.Text;
+                        aux.Contacto.cp = txtCP.Text;
+
+                        if (txtNombreClientes.Text != "")
+                        {
+                            aux.Nombre = txtNombreClientes.Text;
+                            negocio.ModificarCliente(id, aux);
+                            lblAvisoClientes.Text = "CLIENTE MODIFICADO CORRECTAMENTE";
+                            lblAvisoClientes.ForeColor = System.Drawing.Color.Green;
+
+                        }
+                        else
+                        {
+                            lblAvisoClientes.Text = "POR FAVOR AÑADA UN NOMBRE";
+                            lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
+                            txtNombreClientes.BackColor = System.Drawing.Color.Red;
+                        }
+
+
+                    }
+                    else
+                    {
+                        txtEmail.BackColor = System.Drawing.Color.Red;
+                        txtTelefono.BackColor = System.Drawing.Color.Red;
+                        lblAvisoClientes.Text = "POR FAVOR AGREGAR UN CONTACTO: EMAIL O TELEFONO CELULAR";
+                        lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
+                    }
+
+                }
+                else
+                {
+                    lblAvisoClientes.Text = "EL CLIENTE YA EXISTE (DNI YA EXISTE EN BASE DE DATOS)";
+                    lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
+                }
+
+              
             }
             else
             {
-                lblAvisoClientes.Text = "POR FAVOR CARGUE UN CLIENTE";
+                lblAvisoClientes.Text = "POR FAVOR CARGUE UN DNI O CUIT AL CLIENTE";
                 lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
             }
         }

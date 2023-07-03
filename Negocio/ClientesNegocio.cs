@@ -183,12 +183,12 @@ namespace Negocio
         }
 
 
-        public void ModificarCliente(string id, string nombre)
+        public void ModificarCliente(string id, Cliente aux)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("update Clientes set nombre = '" + nombre + "' where id = " + id);
+                datos.setearQuery("UPDATE Clientes SET nombre = '" + aux.Nombre + "', telefono = '" + aux.Contacto.telefono + "', " + "direccion = '" + aux.Contacto.domicilio + "', correo = '" + aux.Contacto.email + "', apellido = '" + aux.Apellido + "', " + "codigopostal = '" + aux.Contacto.cp + "' WHERE id = " + id);
                 datos.ejecutarAccion();
 
             }
@@ -203,5 +203,71 @@ namespace Negocio
             }
         }
 
+
+        public List<Cliente> TraerUnRegistro(int cod)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            AccesoDatos datos = new AccesoDatos();
+
+
+            try
+            {
+                datos.setearQuery("select c.id as id,c.nombre as nombre,c.direccion as domicilio,c.telefono as telefono,c.correo as correo,c.dni as dni,c.apellido as apellido,c.codigoPostal as cp from clientes as c");
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Cliente aux = new Cliente();
+
+                    if (cod == (int)datos.Lector["id"])
+                    {
+                        if (!(datos.Lector["Id"] is DBNull))
+                            aux.Id = (int)datos.Lector["Id"];
+
+
+                        if (!(datos.Lector["nombre"] is DBNull))
+                            aux.Nombre = (string)datos.Lector["nombre"];
+
+                        aux.Contacto = new Contacto();
+                        if (!(datos.Lector["domicilio"] is DBNull))
+                            aux.Contacto.domicilio = (string)datos.Lector["domicilio"];
+                        else
+                            aux.Contacto.domicilio = "Sin Domicilio registrado";
+
+                        if (!(datos.Lector["correo"] is DBNull))
+                            aux.Contacto.email = (string)datos.Lector["correo"];
+                 
+                        if (!(datos.Lector["dni"] is DBNull))
+                            aux.Dni = (string)datos.Lector["dni"];
+                        
+
+                        if (!(datos.Lector["apellido"] is DBNull))
+                            aux.Apellido = (string)datos.Lector["apellido"];
+                  
+
+                        if (!(datos.Lector["cp"] is DBNull))
+                            aux.Contacto.cp = (string)datos.Lector["cp"];
+
+
+
+                        lista.Add(aux);
+                        return lista;
+                    }
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
