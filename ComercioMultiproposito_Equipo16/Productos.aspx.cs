@@ -64,7 +64,8 @@ namespace ComercioMultiproposito_Equipo16
                 }
                 else if(e.CommandName == "Detalles")
                 {
-                    Response.Redirect("DetallesProductos.aspx");
+                    string codigo = dgvProductos.DataKeys[Fila].Value.ToString();
+                    Response.Redirect("DetallesProductos.aspx?id="+codigo);
                 }
             }
             catch (Exception ex)

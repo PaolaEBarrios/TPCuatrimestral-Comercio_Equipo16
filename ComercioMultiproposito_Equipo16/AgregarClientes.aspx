@@ -63,8 +63,14 @@
         
         <asp:Label ID="lblAvisoClientes" runat="server" Text=""></asp:Label>
         <div class="form_agregar-txtNombre">
-            <asp:Label ID="lblClientes" cssclass="form-label" runat="server" Text=" Clientes: " for="txtNombreClientes"></asp:Label>
-            <asp:TextBox cssclass="form-control" placeholder="Nombre de el Cliente" ID="txtNombreClientes" runat="server"></asp:TextBox>
+            <asp:Label Text="" runat="server" id="lblDni" for="txtDni"/>
+            <asp:TextBox runat="server" placeholder="Ingrese dni..." ID="txtDni" CssClass="form-control" />
+
+            <asp:Label ID="lblClientes" cssclass="form-label" runat="server" Text=" Nombres: " for="txtNombreClientes"></asp:Label>
+            <asp:TextBox cssclass="form-control" placeholder="Ingrese nombres..." ID="txtNombreClientes" runat="server"></asp:TextBox>
+            <asp:Label Text="Apellidos: " runat="server"  ID="lblApellido"/>
+            <asp:TextBox runat="server" placeholder="Ingrese apellidos..." ID="txtApellido" CssClass="form-control"/>
+
         </div>
         <%  if (Session["usuario"]!= null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.ADMIN) {
 

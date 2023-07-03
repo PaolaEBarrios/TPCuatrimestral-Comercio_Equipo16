@@ -17,9 +17,6 @@ namespace ComercioMultiproposito_Equipo16
                 ClientesNegocio negocio = new ClientesNegocio();
 
                 dgvClientes.DataSource = negocio.listar();
-
-
-
                 dgvClientes.DataBind();
 
             }

@@ -101,6 +101,16 @@ CREATE TABLE Usuarios (
     [TipoUser] INT          NULL,
     CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED ([Id] ASC)
 )
+GO
+Create table tipo_persona
+(
+	id tinyint primary key check(id = 1 or id = 2),
+	tipo char(1)  null check(tipo = 'J' or tipo = 'F')
+)
+
+INSERT INTO tipo_persona VALUES(1,'J'),(2,'F')
 
 insert into Usuarios VALUES ('admin', 'admin', 2)
 Select id, usuario, pass, tipouser from Usuarios Where usuario = 'test' AND pass = 'test'
+
+SELECT * FROM tipo_persona
