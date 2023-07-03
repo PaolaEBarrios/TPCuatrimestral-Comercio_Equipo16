@@ -22,6 +22,14 @@ alter table clientes
 add codigoPostal varchar(6)
 go
 
+ALTER TABLE clientes
+ADD CONSTRAINT UK_DNI UNIQUE (DNI)
+go
+
+ALTER TABLE Clientes
+ALTER COLUMN dni VARCHAR(11)
+go
+
 CREATE TABLE Proveedores (
   id INT PRIMARY KEY,
   nombre VARCHAR(100),

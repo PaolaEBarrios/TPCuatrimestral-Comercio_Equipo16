@@ -38,20 +38,54 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnAgregarClientes_Click(object sender, EventArgs e)
         {
             ClientesNegocio negocio = new ClientesNegocio();
-            string nombre = txtNombreClientes.Text;
+            string dni = txtDni.Text;
 
-            if (nombre != "")
+            if (dni != "")
             {
-                if (negocio.ExisteNombreCliente(nombre) == false)
+                if (negocio.ExisteCuitDni(dni) == false)
                 {
                     Cliente aux = new Cliente();
 
                     aux.Id = negocio.TraerUltimoId();
-                    aux.Nombre = nombre;
+                    aux.Dni=dni;
+                    
 
-                    negocio.AgregarCliente(aux);
-                    lblAvisoClientes.Text = "CLIENTE AÑADIDO CORRECTAMENTE";
-                    lblAvisoClientes.ForeColor = System.Drawing.Color.Green;
+                    
+                    if(txtTelefono.Text != "" || txtEmail.Text != "")
+                    {
+                        aux.Contacto = new Contacto();
+
+                        aux.Contacto.telefono = txtTelefono.Text;
+                        aux.Contacto.domicilio = txtDomicilio.Text;
+                        aux.Contacto.email = txtEmail.Text;
+                        aux.Apellido = txtApellido.Text;
+                        aux.Contacto.cp = txtCP.Text;
+
+                        if(txtNombreClientes.Text != "")
+                        {
+                            aux.Nombre = txtNombreClientes.Text;
+
+                            negocio.AgregarCliente(aux);
+                            lblAvisoClientes.Text = "CLIENTE AÑADIDO CORRECTAMENTE";
+                            lblAvisoClientes.ForeColor = System.Drawing.Color.Green;
+                        }
+                        else
+                        {
+                            lblAvisoClientes.Text = "POR FAVOR AÑADA UN NOMBRE";
+                            lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
+                            txtNombreClientes.BackColor = System.Drawing.Color.Red;
+                        }
+
+                        
+                    }
+                    else
+                    {
+                        txtEmail.BackColor = System.Drawing.Color.Red;
+                        txtTelefono.BackColor = System.Drawing.Color.Red;
+                        lblAvisoClientes.Text = "POR FAVOR AGREGAR UN CONTACTO: EMAIL O TELEFONO CELULAR";
+                        lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
+                    }
+                    
                 }
                 else
                 {
@@ -61,7 +95,7 @@ namespace ComercioMultiproposito_Equipo16
             }
             else
             {
-                lblAvisoClientes.Text = "CLIENTE SIN NOMBRE, POR FAVOR INGRESE UNA NOMBRE PARA EL CLIENTE";
+                lblAvisoClientes.Text = "CLIENTE SIN DNI O CUIT, POR FAVOR INGRESE UN DNI O CUIT PARA EL CLIENTE";
                 lblAvisoClientes.ForeColor = System.Drawing.Color.Red;
             }
 

@@ -88,13 +88,13 @@ namespace Negocio
             }
         }
 
-        public void AgregarCliente(Cliente cliente)
+        public void AgregarCliente(Cliente aux)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearQuery("Insert into Clientes (id, Nombre)  values (" + cliente.Id + ", '" + cliente.Nombre + "')");
+                datos.setearQuery("INSERT INTO Clientes (id, Dni, Telefono, Direccion, Correo, Apellido, CodigoPostal, Nombre) VALUES ("+ aux.Id + ", '" + aux.Dni + "', '" + aux.Contacto.telefono + "', '" + aux.Contacto.domicilio + "', '"+ aux.Contacto.email + "', '" + aux.Apellido + "', '" + aux.Contacto.cp + "', '" + aux.Nombre + "')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -126,13 +126,13 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        public bool ExisteNombreCliente(string nombre)
+        public bool ExisteCuitDni(string dni)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearQuery("select id from Clientes where nombre = '" + nombre + "'");
+                datos.setearQuery("select id from Clientes where dni = '" + dni + "'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
