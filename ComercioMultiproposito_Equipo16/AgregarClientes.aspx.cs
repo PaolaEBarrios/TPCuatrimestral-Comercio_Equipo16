@@ -32,12 +32,12 @@ namespace ComercioMultiproposito_Equipo16
                     
                     txtDni.Text=listaCliente[0].Dni;
                     
-                    txtEmail.Text = listaCliente[0].Contacto.email;
+                    txtEmail.Text = listaCliente[0].Email;
                     txtApellido.Text = listaCliente[0].Apellido;
-                    txtCP.Text = listaCliente[0].Contacto.cp;
+                    txtCP.Text = listaCliente[0].Cp;
                     txtDni.Text = listaCliente[0].Dni;
-                    txtDomicilio.Text = listaCliente[0].Contacto.domicilio;
-                    txtTelefono.Text = listaCliente[0].Contacto.telefono;
+                    txtDomicilio.Text = listaCliente[0].Domicilio;
+                    txtTelefono.Text = listaCliente[0].Telefono;
 
                     
                 }
@@ -73,13 +73,13 @@ namespace ComercioMultiproposito_Equipo16
                     
                     if(txtTelefono.Text != "" || txtEmail.Text != "")
                     {
-                        aux.Contacto = new Contacto();
+                        
 
-                        aux.Contacto.telefono = txtTelefono.Text;
-                        aux.Contacto.domicilio = txtDomicilio.Text;
-                        aux.Contacto.email = txtEmail.Text;
+                        aux.Telefono = txtTelefono.Text;
+                        aux.Domicilio = txtDomicilio.Text;
+                        aux.Email = txtEmail.Text;
                         aux.Apellido = txtApellido.Text;
-                        aux.Contacto.cp = txtCP.Text;
+                        aux.Cp = txtCP.Text;
 
                         if(txtNombreClientes.Text != "")
                         {
@@ -151,13 +151,12 @@ namespace ComercioMultiproposito_Equipo16
 
                     if (txtTelefono.Text != "" || txtEmail.Text != "")
                     {
-                        aux.Contacto = new Contacto();
-
-                        aux.Contacto.telefono = txtTelefono.Text;
-                        aux.Contacto.domicilio = txtDomicilio.Text;
-                        aux.Contacto.email = txtEmail.Text;
+                        
+                        aux.Telefono = txtTelefono.Text;
+                        aux.Domicilio = txtDomicilio.Text;
+                        aux.Email = txtEmail.Text;
                         aux.Apellido = txtApellido.Text;
-                        aux.Contacto.cp = txtCP.Text;
+                        aux.Cp = txtCP.Text;
 
                         if (txtNombreClientes.Text != "")
                         {

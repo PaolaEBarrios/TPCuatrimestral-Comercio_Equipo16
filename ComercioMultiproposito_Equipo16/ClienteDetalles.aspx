@@ -15,10 +15,10 @@
                         <asp:BoundField HeaderText="Dni" DataField="Dni" />
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                         <asp:BoundField HeaderText="Apellido" DataField="Apellido"/>
-                        <asp:BoundField HeaderText="Domicilio" DataField="Contacto" />
-                        <asp:BoundField HeaderText="Cp" DataField="Contacto"/>
-                        <asp:BoundField HeaderText="Telefono" DataField="Contacto"  />
-                        <asp:BoundField HeaderText="Email" DataField="Contacto"/>
+                        <asp:BoundField HeaderText="Domicilio" DataField="Domicilio" />
+                        <asp:BoundField HeaderText="Codigo Postal" DataField="Cp"/>
+                        <asp:BoundField HeaderText="Telefono" DataField="Telefono"  />
+                        <asp:BoundField HeaderText="Email" DataField="Email"/>
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                        

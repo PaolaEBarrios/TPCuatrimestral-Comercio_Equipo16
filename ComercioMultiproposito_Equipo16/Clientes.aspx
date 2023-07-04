@@ -79,7 +79,7 @@
                         <asp:BoundField HeaderText=" Nombre " DataField="Nombre" />
                         <asp:BoundField HeaderText=" Apellido " DataField="Apellido"  />
                         <asp:BoundField HeaderText=" DNI " DataField="DNI"/>
-                        
+                        <asp:BoundField HeaderText=" CP" DataField="Cp" />
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Detalles" Text="Detalles" ButtonType="Button" />

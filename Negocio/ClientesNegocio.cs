@@ -94,7 +94,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("INSERT INTO Clientes (id, Dni, Telefono, Direccion, Correo, Apellido, CodigoPostal, Nombre) VALUES ("+ aux.Id + ", '" + aux.Dni + "', '" + aux.Contacto.telefono + "', '" + aux.Contacto.domicilio + "', '"+ aux.Contacto.email + "', '" + aux.Apellido + "', '" + aux.Contacto.cp + "', '" + aux.Nombre + "')");
+                datos.setearQuery("INSERT INTO Clientes (id, Dni, Telefono, Direccion, Correo, Apellido, CodigoPostal, Nombre) VALUES ("+ aux.Id + ", '" + aux.Dni + "', '" + aux.Telefono + "', '" + aux.Domicilio + "', '"+ aux.Email + "', '" + aux.Apellido + "', '" + aux.Cp + "', '" + aux.Nombre + "')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -188,7 +188,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("UPDATE Clientes SET nombre = '" + aux.Nombre + "', telefono = '" + aux.Contacto.telefono + "', " + "direccion = '" + aux.Contacto.domicilio + "', correo = '" + aux.Contacto.email + "', apellido = '" + aux.Apellido + "', " + "codigopostal = '" + aux.Contacto.cp + "' WHERE id = " + id);
+                datos.setearQuery("UPDATE Clientes SET nombre = '" + aux.Nombre + "', telefono = '" + aux.Telefono + "', " + "direccion = '" + aux.Domicilio + "', correo = '" + aux.Email + "', apellido = '" + aux.Apellido + "', " + "codigopostal = '" + aux.Cp + "' WHERE id = " + id);
                 datos.ejecutarAccion();
 
             }
@@ -229,14 +229,14 @@ namespace Negocio
                         if (!(datos.Lector["nombre"] is DBNull))
                             aux.Nombre = (string)datos.Lector["nombre"];
 
-                        aux.Contacto = new Contacto();
+                        
                         if (!(datos.Lector["domicilio"] is DBNull))
-                            aux.Contacto.domicilio = (string)datos.Lector["domicilio"];
+                            aux.Domicilio = (string)datos.Lector["domicilio"];
                         else
-                            aux.Contacto.domicilio = "Sin Domicilio registrado";
+                            aux.Domicilio = "Sin Domicilio registrado";
 
                         if (!(datos.Lector["correo"] is DBNull))
-                            aux.Contacto.email = (string)datos.Lector["correo"];
+                            aux.Email = (string)datos.Lector["correo"];
                  
                         if (!(datos.Lector["dni"] is DBNull))
                             aux.Dni = (string)datos.Lector["dni"];
@@ -247,7 +247,7 @@ namespace Negocio
                   
 
                         if (!(datos.Lector["cp"] is DBNull))
-                            aux.Contacto.cp = (string)datos.Lector["cp"];
+                            aux.Cp = (string)datos.Lector["cp"];
 
 
 

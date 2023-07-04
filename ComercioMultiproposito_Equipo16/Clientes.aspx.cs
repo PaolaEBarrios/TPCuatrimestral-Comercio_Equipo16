@@ -30,7 +30,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var id = dgvClientes.SelectedDataKey.Value.ToString();
+          
 
 
         }
