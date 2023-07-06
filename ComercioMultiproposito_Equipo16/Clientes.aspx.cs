@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
 
 namespace ComercioMultiproposito_Equipo16
 {
@@ -16,8 +17,12 @@ namespace ComercioMultiproposito_Equipo16
             {
                 ClientesNegocio negocio = new ClientesNegocio();
 
-                dgvClientes.DataSource = negocio.listar();
+                Session.Add("listaClientes", negocio.listar());
+                dgvClientes.DataSource = Session["listaClientes"];
                 dgvClientes.DataBind();
+
+                //dgvClientes.DataSource = negocio.listar();
+                //dgvClientes.DataBind();
 
             }
             catch (Exception ex)
@@ -31,8 +36,6 @@ namespace ComercioMultiproposito_Equipo16
         protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
           
-
-
         }
 
         protected void btnAgregarClientes_Click(object sender, EventArgs e)
@@ -84,6 +87,14 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnEmpleado_Click(object sender, EventArgs e)
         {
             Response.Redirect("Empleado.aspx");
+        }
+
+        protected void txtBuscarClientes_TextChanged(object sender, EventArgs e)
+        {
+            List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
+            List<Cliente> listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtBuscarClientes.Text.ToUpper()));
+            dgvClientes.DataSource = listaFiltrada;
+            dgvClientes.DataBind();
         }
     }
 }

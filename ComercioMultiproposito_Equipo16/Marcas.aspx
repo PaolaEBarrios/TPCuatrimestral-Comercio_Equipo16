@@ -56,7 +56,7 @@
     </div>
 
     <div class="cajaBuscar">
-        <asp:TextBox ID="txtBuscarMarca" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtBuscarMarca" runat="server" AutoPostBack="true" OnTextChanged="txtBuscarMarca_TextChanged"></asp:TextBox>
         <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" class="btn" />
     </div>
 

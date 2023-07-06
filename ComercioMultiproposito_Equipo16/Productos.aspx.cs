@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
 
 namespace ComercioMultiproposito_Equipo16
 {
@@ -15,11 +16,10 @@ namespace ComercioMultiproposito_Equipo16
             try
             {
                 ProductoNegocio negocio = new ProductoNegocio();
+                //dgvProductos.DataSource = negocio.listar();
 
-                dgvProductos.DataSource = negocio.listar();
-
-
-
+                Session.Add("listaProductos", negocio.listar());
+                dgvProductos.DataSource = Session["listaProductos"];
                 dgvProductos.DataBind();
 
             }
@@ -78,6 +78,14 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             Response.Redirect("AgregarProducto.aspx");
+        }
+
+        protected void txtBuscarProductos_TextChanged(object sender, EventArgs e)
+        {
+            List<Producto> lista =(List<Producto>) Session["listaProductos"];
+            List<Producto> listaFiltrada = lista.FindAll(x => x.NombreProducto.ToUpper().Contains(txtBuscarProductos.Text.ToUpper()));
+            dgvProductos.DataSource = listaFiltrada;
+            dgvProductos.DataBind();
         }
     }
 }

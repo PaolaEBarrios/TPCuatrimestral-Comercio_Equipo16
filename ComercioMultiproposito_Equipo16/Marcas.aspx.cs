@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
 
 namespace ComercioMultiproposito_Equipo16
 {
@@ -85,5 +86,12 @@ namespace ComercioMultiproposito_Equipo16
             Response.Redirect("Empleado.aspx");
         }
 
+        protected void txtBuscarMarca_TextChanged(object sender, EventArgs e)
+        {
+            List<Marca> lista = (List<Marca>)Session["listaMarcas"];
+            List<Marca> listaFiltrada = lista.FindAll(x => x.NombreMarca.ToUpper().Contains(txtBuscarMarca.Text.ToUpper()));
+            dgvMarcas.DataSource = listaFiltrada;
+            dgvMarcas.DataBind();
+        }
     }
 }

@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace ComercioMultiproposito_Equipo16
 {
-    public partial class Venta : System.Web.UI.Page
+    public partial class Ventas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btnEmpleado_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Empleado.aspx");
         }
     }
 }
