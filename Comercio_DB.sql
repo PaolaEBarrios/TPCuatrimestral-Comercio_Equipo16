@@ -127,3 +127,70 @@ insert into Usuarios VALUES ('admin', 'admin', 2)
 Select id, usuario, pass, tipouser from Usuarios Where usuario = 'test' AND pass = 'test'
 
 SELECT * FROM tipo_persona
+
+
+-- Insertar valores en la tabla Clientes
+INSERT INTO Clientes (id, nombre, direccion, telefono, correo, dni, apellido, codigoPostal)
+VALUES
+  (1, 'Cliente 1', 'Dirección 1', '123456789', 'cliente1@example.com', '123456789', 'Apellido 1', '123456'),
+  (2, 'Cliente 2', 'Dirección 2', '987654321', 'cliente2@example.com', '987654321', 'Apellido 2', '654321');
+
+-- Insertar valores en la tabla Proveedores
+INSERT INTO Proveedores (id, nombre, direccion, telefono, correo)
+VALUES
+  (1, 'Proveedor 1', 'Dirección 1', '111111111', 'proveedor1@example.com'),
+  (2, 'Proveedor 2', 'Dirección 2', '222222222', 'proveedor2@example.com');
+
+-- Insertar valores en la tabla Marcas
+INSERT INTO Marcas (id, nombre)
+VALUES
+  (1, 'Marca 1'),
+  (2, 'Marca 2');
+
+-- Insertar valores en la tabla Categorias
+INSERT INTO Categorias (id, nombre)
+VALUES
+  (1, 'Categoría 1'),
+  (2, 'Categoría 2');
+
+-- Insertar valores en la tabla Productos
+INSERT INTO Productos (id, nombre, precio, id_marca, id_categoria, stock_actual, stock_minimo, descripcion, ganancia)
+VALUES
+  (1, 'Producto 1', 10.99, 1, 1, 100, 20, 'Descripción 1', 5),
+  (2, 'Producto 2', 19.99, 2, 2, 50, 10, 'Descripción 2', 8);
+
+-- Insertar valores en la tabla Proveedores_Productos
+INSERT INTO Proveedores_Productos (id_proveedor, id_producto)
+VALUES
+  (1, 1),
+  (2, 2);
+
+-- Insertar valores en la tabla Compras
+INSERT INTO Compras (id, id_proveedor, fecha)
+VALUES
+  (1, 1, '2023-07-01'),
+  (2, 2, '2023-07-02');
+
+-- Insertar valores en la tabla Detalles_Compra
+INSERT INTO Detalles_Compra (id_compra, id_producto, cantidad, precio)
+VALUES
+  (1, 1, 5, 10.99),
+  (2, 2, 3, 19.99);
+
+-- Insertar valores en la tabla Ventas
+INSERT INTO Ventas (id, id_cliente, fecha)
+VALUES
+  (1, 1, '2023-07-03'),
+  (2, 2, '2023-07-04');
+
+-- Insertar valores en la tabla Detalles_Venta
+INSERT INTO Detalles_Venta (id_venta, id_producto, cantidad, precio)
+VALUES
+  (1, 1, 2, 10.99),
+  (2, 2, 1, 19.99);
+
+-- Insertar valores en la tabla Usuarios
+INSERT INTO Usuarios (Usuario, Pass, TipoUser)
+VALUES
+  ('Usuario1', '123456', 1),
+  ('admin', 'admin', 2);
