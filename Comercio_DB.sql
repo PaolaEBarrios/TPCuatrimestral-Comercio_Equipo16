@@ -38,6 +38,11 @@ CREATE TABLE Proveedores (
   correo VARCHAR(100)
 )
 Go
+
+alter table Proveedores
+Add dni varchar(11)
+go
+
 CREATE TABLE Marcas (
   id INT PRIMARY KEY,
   nombre VARCHAR(100)
@@ -75,6 +80,9 @@ CREATE TABLE Proveedores_Productos ( --RELACIONAR PRODUCTOS Y PROVEEDORES--
   FOREIGN KEY (id_producto) REFERENCES Productos(id)
 )
 Go
+
+
+
 CREATE TABLE Compras (
   id INT PRIMARY KEY,
   id_proveedor INT,

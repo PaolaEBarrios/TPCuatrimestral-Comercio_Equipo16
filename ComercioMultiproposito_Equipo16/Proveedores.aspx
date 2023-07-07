@@ -55,7 +55,7 @@
     </div>
 
     <div class="cajaBuscar">
-        <asp:TextBox ID="txtBuscarProveedores" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtBuscarProveedores" runat="server" OnTextChanged="txtBuscarProveedores_TextChanged"></asp:TextBox>
         <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" class="btn" />
     </div>
 

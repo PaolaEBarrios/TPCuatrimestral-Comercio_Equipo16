@@ -63,12 +63,33 @@
         
         <asp:Label ID="lblAviso" runat="server" Text=""></asp:Label>
         <div class="form_agregar-txtNombre">
-            <asp:Label ID="lblProveedores" cssclass="form-label" runat="server" Text=" Proveedores: " for="txtNombreProveedores"></asp:Label>
+            <asp:Label ID="lblProveedores" cssclass="form-label" runat="server" Text=" Nombre del proveedor: " for="txtNombreProveedores"></asp:Label>
             <asp:TextBox cssclass="form-control" placeholder="Nombre de el Proveedor" ID="txtNombreProveedores" runat="server"></asp:TextBox>
-            <asp:Label ID="Productos" runat="server" Text=""></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:Label ID="Productos" runat="server" Text="Apellidos: "></asp:Label>
+            <asp:TextBox ID="txtApellido" runat="server" placeholder="Apellido del proveedor" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lbldni" runat="server" Text="Dni/Cuil/CUIT:"></asp:Label>
+            <asp:TextBox ID="txtDni" runat="server" placeholder="Ingrese DNI/CUIT O CUIL" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblTelefono" runat="server" Text="Telefono/Celular: "></asp:Label>
+            <asp:TextBox ID="txtTelefono" runat="server" placeholder="Ingrese numero de contacto" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblDomicilio" runat="server" Text="Domicilio: "></asp:Label>
+            <asp:TextBox ID="txtDomicilio" runat="server" placeholder="Ingrese el domicilio: " CssClass="form-control"></asp:TextBox>
+
+            <div>
+                <asp:Label ID="lblAsociarProductos" runat="server" Text="Asociar productos" Font-Size="20px"></asp:Label>
+                
+            </div>
+            
+            <div >
+                <asp:Label Text="¿Desea asociar productos a este proveedor?" runat="server" />
+                <asp:CheckBox ID="chkBoxProductos" runat="server" CssClass="" OnCheckedChanged="chkBoxProductos_CheckedChanged" AutoPostBack="true"/>
+                
+                <asp:CheckBoxList ID="chkBoxListProductos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkBoxListProductos_SelectedIndexChanged" Visible="false">
+                    <asp:ListItem Text="Seleccionar un producto existente" Value="1" />
+                    <asp:ListItem Text="Agregar nuevo producto" Value="2"/>
+                </asp:CheckBoxList>
+            </div>
+            
+
 
 
         </div>
@@ -89,4 +110,5 @@
         </div>
         
     </div>
+   
 </asp:Content>

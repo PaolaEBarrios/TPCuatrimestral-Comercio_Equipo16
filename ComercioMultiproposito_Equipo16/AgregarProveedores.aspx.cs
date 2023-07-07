@@ -93,5 +93,39 @@ namespace ComercioMultiproposito_Equipo16
                 lblAviso.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+        protected void chkBoxProductos_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkBoxProductos.Checked == true)
+            {
+                chkBoxListProductos.Visible = true;
+            }
+            else
+            {
+                chkBoxListProductos.Visible=false;
+            }
+        }
+
+        protected void chkBoxListProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in chkBoxListProductos.Items)
+            {
+                if (item.Selected)
+                {
+                    if(item.Value=="1")
+                    {
+
+                    }
+                    else if(item.Value=="2")
+                    {
+
+                    }
+                }
+                else
+                {
+                    item.Enabled = true; 
+                }
+            }
+        }
     }
 }

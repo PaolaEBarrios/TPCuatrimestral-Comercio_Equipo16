@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
 
 namespace ComercioMultiproposito_Equipo16
 {
@@ -16,10 +17,11 @@ namespace ComercioMultiproposito_Equipo16
             {
                 ProveedoresNegocio negocio = new ProveedoresNegocio();
 
-                dgvProveedores.DataSource = negocio.listar();
+                //dgvProveedores.DataSource = negocio.listar();
+                //dgvProveedores.DataBind();
 
-
-
+                Session.Add("listaProveedores", negocio.listar());
+                dgvProveedores.DataSource = Session["listaProveedores"];
                 dgvProveedores.DataBind();
 
             }
@@ -82,6 +84,14 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnEmpleado_Click(object sender, EventArgs e)
         {
             Response.Redirect("Empleado.aspx");
+        }
+
+        protected void txtBuscarProveedores_TextChanged(object sender, EventArgs e)
+        {
+            List<Proveedor> lista = (List<Proveedor>)Session["listaProveedores"];
+            List<Proveedor> listaFiltrada = lista.FindAll(x => x.Dni.ToUpper().Contains(txtBuscarProveedores.Text.ToUpper()));
+            dgvProveedores.DataSource = listaFiltrada;
+            dgvProveedores.DataBind();
         }
     }
 }
