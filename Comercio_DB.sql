@@ -43,6 +43,9 @@ alter table Proveedores
 Add dni varchar(11)
 go
 
+ALTER TABLE Proveedores
+ADD CONSTRAINT uc_dni UNIQUE (dni)
+
 CREATE TABLE Marcas (
   id INT PRIMARY KEY,
   nombre VARCHAR(100)

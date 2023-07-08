@@ -63,10 +63,13 @@
         
         <asp:Label ID="lblAviso" runat="server" Text=""></asp:Label>
         <div class="form_agregar-txtNombre">
+
+            <asp:TextBox ID="txtid" runat="server" Visible="false"></asp:TextBox>
             <asp:Label ID="lblProveedores" cssclass="form-label" runat="server" Text=" Nombre del proveedor: " for="txtNombreProveedores"></asp:Label>
             <asp:TextBox cssclass="form-control" placeholder="Nombre de el Proveedor" ID="txtNombreProveedores" runat="server"></asp:TextBox>
-            <asp:Label ID="Productos" runat="server" Text="Apellidos: "></asp:Label>
-            <asp:TextBox ID="txtApellido" runat="server" placeholder="Apellido del proveedor" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblEmail" runat="server" Text="Correo electronico: "></asp:Label>
+
+            <asp:TextBox ID="txtEmail" runat="server" placeholder="Email del proveedor" CssClass="form-control"></asp:TextBox>
             <asp:Label ID="lbldni" runat="server" Text="Dni/Cuil/CUIT:"></asp:Label>
             <asp:TextBox ID="txtDni" runat="server" placeholder="Ingrese DNI/CUIT O CUIL" CssClass="form-control"></asp:TextBox>
             <asp:Label ID="lblTelefono" runat="server" Text="Telefono/Celular: "></asp:Label>
@@ -83,10 +86,37 @@
                 <asp:Label Text="¿Desea asociar productos a este proveedor?" runat="server" />
                 <asp:CheckBox ID="chkBoxProductos" runat="server" CssClass="" OnCheckedChanged="chkBoxProductos_CheckedChanged" AutoPostBack="true"/>
                 
-                <asp:CheckBoxList ID="chkBoxListProductos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkBoxListProductos_SelectedIndexChanged" Visible="false">
+                <asp:CheckBoxList ID="chkBoxListProductos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkBoxListProductos_SelectedIndexChanged" Visible="false" >
                     <asp:ListItem Text="Seleccionar un producto existente" Value="1" />
                     <asp:ListItem Text="Agregar nuevo producto" Value="2"/>
                 </asp:CheckBoxList>
+            </div>
+
+            <div>
+
+                
+                    <div class="row">
+                        <div class="col">
+                            <asp:GridView ID="dgvProductos" DataKeyNames="Codigo" runat="server" CssClass="table table-dark " AutoGenerateColumns="false" >
+
+                                 <Columns>
+
+                                    <asp:BoundField HeaderText="Codigo" DataField="Codigo" Visible="false" />
+                                    <asp:BoundField HeaderText="Producto" DataField="NombreProducto" />
+                                    <asp:BoundField HeaderText="Marca" DataField="Marca"/>
+                                    <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
+                                    <asp:BoundField HeaderText="Precio" DataField="Precio"/>
+                                    <asp:ButtonField CommandName="Seleccionar" Text="Seleccionar" ButtonType="Button" />
+                                    
+                   
+                                 </Columns>
+
+                            </asp:GridView>
+
+                       </div>
+                 </div>
+             
+
             </div>
             
 

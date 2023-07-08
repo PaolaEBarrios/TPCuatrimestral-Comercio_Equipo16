@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Select p.id as Id,p.nombre as Nombre from Proveedores as p");
+                datos.setearQuery("Select p.id as ID,p.nombre as Nombre,p.direccion as Domicilio, p.telefono as Telefono, p.correo as Email, p.dni as DNI from Proveedores as p");
 
                 datos.ejecutarLectura();
 
@@ -27,11 +27,21 @@ namespace Negocio
 
 
 
-                    if (!(datos.Lector["Id"] is DBNull))
+                    if (!(datos.Lector["ID"] is DBNull))
                         aux.Codigo = (int)datos.Lector["Id"];
 
                     if (!(datos.Lector["Nombre"] is DBNull))
                         aux.Nombre = (string)datos.Lector["Nombre"];
+
+                    if (!(datos.Lector["Domicilio"] is DBNull))
+                        aux.Domicilio = (string)datos.Lector["Nombre"];
+                    if (!(datos.Lector["Telefono"] is DBNull))
+                        aux.Telefono = (string)datos.Lector["Telefono"];
+                    if (!(datos.Lector["Email"] is DBNull))
+                        aux.Email = (string)datos.Lector["Email"];
+                    if (!(datos.Lector["DNI"] is DBNull))
+                        aux.Dni = (string)datos.Lector["DNI"];
+
 
                     lista.Add(aux);
                 }
@@ -85,7 +95,8 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Insert into Proveedores (id, Nombre)  values (" + proveedor.Codigo + ", '" + proveedor.Nombre + "')");
+                string consulta = "INSERT INTO Proveedores (id, Nombre, Direccion, Telefono, Correo, DNI) " +"VALUES (" + proveedor.Codigo + ", '" + proveedor.Nombre + "', '" +proveedor.Domicilio + "', '" + proveedor.Telefono + "', '" +proveedor.Email + "', '" + proveedor.Dni + "')";
+                datos.setearQuery(consulta);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -174,12 +185,14 @@ namespace Negocio
         }
 
 
-        public void ModificarProveedor(string id, string nombre)
+        public void ModificarProveedor(Proveedor proveedor)
         {
+
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("update Proveedores set nombre = '" + nombre + "' where id = " + id);
+                string consulta= "UPDATE Proveedores SET " + "Nombre = '" + proveedor.Nombre + "', " + "Direccion = '" + proveedor.Domicilio + "', " + "Telefono = '" + proveedor.Telefono + "', " + "Correo = '" + proveedor.Email + "', " + "DNI = '" + proveedor.Dni + "' " + "WHERE id = " + proveedor.Codigo;
+                datos.setearQuery(consulta);
                 datos.ejecutarAccion();
 
             }

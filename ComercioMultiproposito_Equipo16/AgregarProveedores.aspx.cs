@@ -13,6 +13,8 @@ namespace ComercioMultiproposito_Equipo16
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (Request.QueryString["id"] != null)
             {
                 ProveedoresNegocio negocio = new ProveedoresNegocio();
@@ -20,13 +22,38 @@ namespace ComercioMultiproposito_Equipo16
                 lblAgregarProveedores.Visible = false;
                 btnAgregarProveedores.Visible = false;
 
-                string nom = Request.QueryString["id"];
+                string id = Request.QueryString["id"];
 
-                string cadena = negocio.TraerNombreProveedor(nom);
-                lblModificar.Text += cadena;
+                if(!IsPostBack)
+                {
+                    Session.Add("listaProveedor", negocio.listar());
+                    List<Proveedor> lista = (List<Proveedor>)Session["listaProveedor"];
+
+                    foreach (Proveedor proveedor in lista)
+                    {
+                        if (id == proveedor.Codigo.ToString())
+                        {
+                            txtid.Text = proveedor.Codigo.ToString();
+                            txtDni.Text = proveedor.Dni.ToString();
+                            txtDomicilio.Text = proveedor.Domicilio.ToString();
+                            txtEmail.Text = proveedor.Email.ToString();
+                            txtNombreProveedores.Text = proveedor.Nombre.ToString();
+                            txtTelefono.Text = proveedor.Telefono.ToString();
+                            
+                        }
+                    }
+
+
+                    string cadena = negocio.TraerNombreProveedor(id);
+                    lblModificar.Text += cadena;
+                }
+                
             }
             else
             {
+                ProveedoresNegocio negocio = new ProveedoresNegocio();
+
+                Session.Add("listaProveedores", negocio.listar());
                 lblModificar.Visible = false;
                 btnModificar.Visible = false;
             }
@@ -41,13 +68,18 @@ namespace ComercioMultiproposito_Equipo16
             string nombre = txtNombreProveedores.Text;
 
             if (nombre != "")
-            {
+            {//corregir esto esta mal
                 if (negocio.ExisteNombreProveedor(nombre) == false)
                 {
                     Proveedor aux = new Proveedor();
 
                     aux.Codigo = negocio.TraerUltimoId();
                     aux.Nombre = nombre;
+                    aux.Dni = txtDni.Text;
+                    aux.Domicilio = txtDomicilio.Text;
+                    aux.Codigo = negocio.TraerUltimoId();
+                    aux.Email = txtEmail.Text;
+                    aux.Telefono=txtTelefono.Text;
 
                     negocio.AgregarProveedor(aux);
                     lblAviso.Text = "PROVEEDOR AÑADIDO CORRECTAMENTE";
@@ -77,21 +109,29 @@ namespace ComercioMultiproposito_Equipo16
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             ProveedoresNegocio negocio = new ProveedoresNegocio();
+            Proveedor aux = new Proveedor();
             string id = Request.QueryString["id"];
 
-            string nombre = txtNombreProveedores.Text;
+            string dni = txtDni.Text;
 
-            if (nombre != "")
-            {
-                negocio.ModificarProveedor(id, nombre);
+            
+
+                aux.Dni = txtDni.Text;
+                
+                aux.Nombre = txtNombreProveedores.Text;
+                aux.Dni = txtDni.Text;
+                aux.Domicilio = txtDomicilio.Text;
+                aux.Codigo =int.Parse( txtid.Text);
+                aux.Email = txtEmail.Text;
+                aux.Telefono = txtTelefono.Text;
+
+                negocio.ModificarProveedor(aux);
                 lblAviso.Text = "PROVEEDOR MODIFICADO CORRECTAMENTE";
                 lblAviso.ForeColor = System.Drawing.Color.Green;
-            }
-            else
-            {
-                lblAviso.Text = "POR FAVOR CARGUE UN PROVEEDOR";
-                lblAviso.ForeColor = System.Drawing.Color.Red;
-            }
+            
+                //lblAviso.Text = "POR FAVOR CARGUE UN CUIT/CUIL O DNI DEL PROVEEDOR";
+                //lblAviso.ForeColor = System.Drawing.Color.Red;
+            
         }
 
         protected void chkBoxProductos_CheckedChanged(object sender, EventArgs e)
@@ -108,24 +148,27 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void chkBoxListProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            string valor = chkBoxListProductos.SelectedValue;
+
             foreach (ListItem item in chkBoxListProductos.Items)
             {
-                if (item.Selected)
+                if (item.Value != valor)
                 {
-                    if(item.Value=="1")
-                    {
-
-                    }
-                    else if(item.Value=="2")
-                    {
-
-                    }
-                }
-                else
-                {
-                    item.Enabled = true; 
+                    item.Selected = false;
                 }
             }
+
+
+            if(valor=="1")
+            {
+                
+            }
+            else if(valor=="2")
+            {
+
+            }
+
         }
     }
 }

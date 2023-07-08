@@ -41,7 +41,7 @@ namespace ComercioMultiproposito_Equipo16
                 //Modificar
 
                 try
-                    {
+                {
 
                         MarcaNegocio marcaNegocio = new MarcaNegocio();
                         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
@@ -52,12 +52,12 @@ namespace ComercioMultiproposito_Equipo16
                         ddListCategoria.DataBind();
 
 
-                    }
-                    catch (Exception ex)
-                    {
+                }
+                catch (Exception ex)
+                {
 
                         throw ex;
-                    }
+                }
                 
             }
             else
