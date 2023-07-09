@@ -38,6 +38,18 @@ CREATE TABLE Proveedores (
   correo VARCHAR(100)
 )
 Go
+alter table compras 
+add formaPago varchar(30) not null
+go
+alter table compras 
+add FechaFin date
+go
+alter table compras
+add estado char(1) not null
+go
+alter table compras 
+add id_productos int foreign key references productos(id)
+go
 
 alter table Proveedores
 Add dni varchar(11)

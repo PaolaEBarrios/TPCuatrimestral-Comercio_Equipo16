@@ -21,7 +21,7 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void btnMostrar_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("MostrarCompras.aspx");
         }
     }
 }

@@ -68,6 +68,42 @@ namespace Negocio
 
         }
 
+
+        public bool confirmarStock(string codigo, int cantidad)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool BanderaStock= false;
+
+            try
+            {
+                datos.setearQuery("SELECT stock_actual FROM Productos WHERE id = @codigo");
+                datos.setParameters("@codigo", codigo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    int Stock = Convert.ToInt32(datos.Lector["stock_actual"]);
+                    
+                    if(Stock >= cantidad)
+                    {
+                        BanderaStock = true;
+                    }
+                     
+                }
+
+                datos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return BanderaStock;
+        }
         public void EliminarProducto(string codigo)
         {
 
@@ -117,7 +153,24 @@ namespace Negocio
             }
         }
 
+        public void modificarStock(string codigo,int cant)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearQuery("update Productos set stock_actual+= " + cant + " where id =" + codigo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void Agregar(Producto aux)
         {
 
