@@ -89,6 +89,67 @@ namespace Negocio
             }
         }
 
+
+        public List<Producto> buscarProductos(string codigo)
+        {
+            List<Producto> lista = new List<Producto>();
+            AccesoDatos datos = new AccesoDatos();
+            
+
+
+            try
+            {
+                datos.setearQuery("Select p.id as ID,p.nombre as Nombre,p.id_marca as IdMarca,p.id_categoria as IdCategoria,p.stock_actual as Stock,p.stock_minimo as StockMin,p.descripcion as Descripcion,p.ganancia as Ganancia from Productos as p inner join Proveedores_Productos as pxp on pxp.id_producto = p.id inner join Proveedores as proveedor on proveedor.id = pxp.id_proveedor where pxp.id_proveedor = " + codigo);
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Producto aux=new Producto();
+
+                    if (!(datos.Lector["ID"] is DBNull))
+                        aux.Codigo = (int)datos.Lector["ID"];
+
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                        aux.NombreProducto = (string)datos.Lector["Nombre"];
+
+                    aux.Marca = new Marca();
+
+                    if (!(datos.Lector["IdMarca"] is DBNull))
+                        aux.Marca.Codigo = (int)datos.Lector["IdMarca"];
+
+                    aux.Categoria = new Categoria();
+                    if (!(datos.Lector["IdCategoria"] is DBNull))
+                        aux.Categoria.Codigo = (int)datos.Lector["IdCategoria"];
+                    
+                    if (!(datos.Lector["Stock"] is DBNull))
+                        aux.Stock = (int)datos.Lector["Stock"];
+                    
+                    if (!(datos.Lector["StockMin"] is DBNull))
+                        aux.StockMin = (int)datos.Lector["StockMin"];
+                    
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    if (!(datos.Lector["Ganancia"] is DBNull))
+                        aux.Ganancia = (int)datos.Lector["Ganancia"];
+                    
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void AgregarProveedor(Proveedor proveedor)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -108,6 +169,9 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+
+        
 
         public void EliminarProveedor(string codigo)
         {
