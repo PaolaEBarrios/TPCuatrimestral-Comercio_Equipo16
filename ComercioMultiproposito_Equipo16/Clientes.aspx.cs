@@ -96,5 +96,7 @@ namespace ComercioMultiproposito_Equipo16
             dgvClientes.DataSource = listaFiltrada;
             dgvClientes.DataBind();
         }
+
+
     }
 }

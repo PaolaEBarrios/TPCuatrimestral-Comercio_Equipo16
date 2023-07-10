@@ -10,7 +10,8 @@ using Dominio;
 namespace ComercioMultiproposito_Equipo16
 {
     public partial class AgregarCompras : System.Web.UI.Page
-    {
+    {   
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
