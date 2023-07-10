@@ -67,6 +67,9 @@
         <div class="botonCompra">
             <asp:Button ID="btnModificar" runat="server" Text="Modificar compra" OnClick="btnModificar_Click" CssClass="btn btn-primary" />
         </div>
+        <div>
+            <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina anterior" OnClick="btnVolver_Click" cssclass="btn btn-primary"/>
+        </div>
     </div>
 
 </asp:Content>

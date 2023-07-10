@@ -78,6 +78,75 @@ namespace Negocio
             }
         }
 
+        public void Eliminar(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+
+                datos.setearQuery("delete from Compras where id = @Codigo");
+                datos.setParameters("@Codigo", codigo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+               
+            }
+        }
+
+        public Compra TraerRegistro(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Compra compra = new Compra();
+
+                datos.setearQuery("Select  c.id as Id,c.estado as Estado,c.FechaFin as FechaFin, c.fecha as FechaCompra,c.formaPago as FormaPago, c.id_Producto as IdProducto, c.id_proveedor as IdProveedor from Compras as c where c.id= @Codigo");
+                datos.setParameters("@Codigo", codigo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    compra.Codigo=(int) datos.Lector["Id"];
+                    compra.FechaFin = (DateTime)datos.Lector["FechaFin"];
+
+                    compra.Proveedor = new Proveedor();
+                    compra.Proveedor.Codigo = (int)datos.Lector["IdProveedor"];
+
+                    compra.Producto = new Producto(); 
+                    compra.Producto.Codigo = (int)datos.Lector["IdProducto"];
+
+                    compra.FormaPago = (string)datos.Lector["FormaPago"];
+
+                    string estado = (string)datos.Lector["Estado"];
+                    compra.Estado = estado[0];
+
+                    compra.FechaCompra = (DateTime)datos.Lector["FechaCompra"];
+                
+                    return compra;
+                }
+                
+                    return null;
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
         public int TraerUltimoId()
         {
             AccesoDatos datos = new AccesoDatos();
@@ -112,7 +181,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("INSERT INTO Compras (id, id_proveedor, id_Producto, fecha, formaPago, estado, FechaFin) VALUES (" + aux.Codigo + ", " + aux.Proveedor.Codigo + ", " + aux.Producto.Codigo + ", '" + aux.FechaCompra + "', '" + aux.FormaPago + "', '" + aux.Estado + "', '" + aux.FechaFin + "')");
+                datos.setearQuery("insert into Compras (id, id_proveedor, id_Producto, fecha, formaPago, estado, FechaFin) VALUES (" + aux.Codigo + ", " + aux.Proveedor.Codigo + ", " + aux.Producto.Codigo + ", '" + aux.FechaCompra + "', '" + aux.FormaPago + "', '" + aux.Estado + "', '" + aux.FechaFin + "')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -125,5 +194,45 @@ namespace Negocio
             }
         }
 
+        public void Modificar(Compra aux, int codigo)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                try
+                {
+                    datos.setearQuery("update Compras SET fecha = @FechaCompra, id_Producto = @IdProducto, id_proveedor = @IdProveedor, FechaFin = @FechaFin, estado = @Estado, formaPago = @FormaPago where id = @Codigo");
+                    datos.setParameters("@FechaCompra", aux.FechaCompra);
+                    datos.setParameters("@IdProducto", aux.Producto.Codigo);
+                    datos.setParameters("@IdProveedor", aux.Proveedor.Codigo);
+                    datos.setParameters("@FechaFin", aux.FechaFin);
+                    datos.setParameters("@Estado", aux.Estado);
+                    datos.setParameters("@FormaPago",aux.FormaPago);
+                    datos.setParameters("@Codigo",aux.Codigo);
+
+
+                    datos.ejecutarAccion();
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+                finally
+                {
+                    datos.cerrarConexion();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
     }
 }

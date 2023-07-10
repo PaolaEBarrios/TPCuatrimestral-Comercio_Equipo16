@@ -47,13 +47,11 @@ namespace ComercioMultiproposito_Equipo16
 
                     string codigo = dgvCompras.DataKeys[IndiceFila].Value.ToString();
 
-                    ClientesNegocio negocio = new ClientesNegocio();
+                    CompraNegocio negocio = new CompraNegocio();
 
-                    negocio.EliminarCliente(codigo);
+                    negocio.Eliminar(codigo);
 
-                    Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
-                                                               //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
-
+                    Response.Redirect(Request.Url.AbsoluteUri);
                 }
          
             }
