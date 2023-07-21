@@ -29,7 +29,7 @@
             
         </div>
         
-        <asp:Button ID="btnLogin" cssclass="btn btn-primary" OnClick="btnLogin_Click" runat="server" Text="Ingresar"  style="background-color:aqua;border-color:black;color:black;" />
+        <asp:Button ID="btnLogin" cssclass="btn btn-info" OnClick="btnLogin_Click" runat="server" Text="Ingresar"   />
     </form>
 
 </div>

@@ -11,7 +11,32 @@ namespace ComercioMultiproposito_Equipo16
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarVentas.aspx");
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarVentas.aspx");
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EliminarVentas.aspx");
+        }
+
+        protected void btnMostrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MostrarVentas.aspx");
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Empleado.aspx");
         }
     }
 }

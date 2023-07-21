@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ComercioMultiproposito_Equipo16
+{
+    public partial class Exito : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string nombre = Request.QueryString["nombre"];
+
+            try
+            {
+                if(nombre != "" || nombre != null)
+                {
+                    if(nombre == "venta")
+                    {
+                        lblAviso.Text = "SE REGISTRO LA VENTA EXITOSAMENTE";
+                        btnVolver.Text = " Volver a ventas";
+                    }
+                    else
+                    {
+                        lblAviso.Text = "SE AGREGO EL PROVEEDOR CON EXITO";
+                        btnVolver.Text = "Volver a proveedores";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            string nombre = Request.QueryString["nombre"];
+            if (nombre == "venta")
+            {
+                Response.Redirect("Ventas.aspx");
+            }
+            else
+            {
+                Response.Redirect("Proveedores.aspx");
+            }
+            
+        }
+    }
+}

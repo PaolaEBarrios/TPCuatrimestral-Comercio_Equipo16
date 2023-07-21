@@ -6,8 +6,8 @@
     <style>
         .btn {
             display: flex;
-            border-color: aqua;
-            background-color: aquamarine;
+            align-content:center;
+            justify-content:center;
             padding: 10px;
             margin: 5px;
         }
@@ -34,12 +34,7 @@
             justify-content: center;
         }
 
-        .col {
-            width: 400px;
-        }
 
-        .row {
-        }
 
         .cajaBuscar {
             padding: 10px;
@@ -55,9 +50,13 @@
     </div>
 
     <div class="cajaBuscar">
-        <asp:TextBox ID="txtBuscarClientes" runat="server" AutoPostBack="true" OnTextChanged="txtBuscarClientes_TextChanged"></asp:TextBox>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" class="btn" />
+        <asp:TextBox ID="txtBuscarClientes" runat="server" AutoPostBack="true" OnTextChanged="txtBuscarClientes_TextChanged" CssClass="form form-control" Style="width:200px" placeholder="Buscar cliente por DNI/CUIT/CUIL"></asp:TextBox>
+
     </div>
+    <div class="btn">
+        <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-info" OnClick="btnEmpleado_Click"/>
+    </div>
+        
 
     <%  if (Session["usuario"]!= null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.ADMIN) {
 
@@ -93,7 +92,7 @@
 
     </div>
 
-    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
    
 
 </asp:Content>

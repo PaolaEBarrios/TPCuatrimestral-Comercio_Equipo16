@@ -18,6 +18,11 @@
                         <asp:BoundField HeaderText="Marca" DataField="Marca"/>
                         <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
                         <asp:BoundField HeaderText="Precio" DataField="Precio"/>
+                        <asp:BoundField HeaderText="Stock Actual" DataField="Stock"/>
+                        <asp:BoundField HeaderText="Stock minimo" DataField="StockMin"/>
+                        <asp:BoundField HeaderText="Ganancia" DataField="Ganancia"/>
+                        <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
+
                         <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                         <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
                        
@@ -28,5 +33,9 @@
 
             </div>
         </div>
+
+    <div>
+        <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina de Productos"  OnClick="btnVolver_Click"/>
+    </div>
 
 </asp:Content>

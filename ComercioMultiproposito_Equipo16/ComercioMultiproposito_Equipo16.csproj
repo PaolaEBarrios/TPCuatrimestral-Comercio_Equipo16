@@ -74,18 +74,26 @@
     <Content Include="AgregarClientes.aspx" />
     <Content Include="AgregarProducto.aspx" />
     <Content Include="AgregarProveedores.aspx" />
+    <Content Include="AgregarVentas.aspx" />
     <Content Include="Categorias.aspx" />
     <Content Include="ClienteDetalles.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DetallesCompra.aspx" />
     <Content Include="DetallesProductos.aspx" />
+    <Content Include="DetallesProveedores.aspx" />
+    <Content Include="DetallesVenta.aspx" />
+    <Content Include="EliminarVentas.aspx" />
     <Content Include="Empleado.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Exito.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Marcas.aspx" />
     <Content Include="ModificarCompra.aspx" />
+    <Content Include="ModificarVentas.aspx" />
     <Content Include="MostrarCompras.aspx" />
+    <Content Include="MostrarVentas.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Ventas.aspx" />
@@ -141,6 +149,13 @@
     <Compile Include="AgregarProveedores.aspx.designer.cs">
       <DependentUpon>AgregarProveedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarVentas.aspx.cs">
+      <DependentUpon>AgregarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarVentas.aspx.designer.cs">
+      <DependentUpon>AgregarVentas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,12 +191,40 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetallesCompra.aspx.cs">
+      <DependentUpon>DetallesCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesCompra.aspx.designer.cs">
+      <DependentUpon>DetallesCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetallesProductos.aspx.cs">
       <DependentUpon>DetallesProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetallesProductos.aspx.designer.cs">
       <DependentUpon>DetallesProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesProveedores.aspx.cs">
+      <DependentUpon>DetallesProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesProveedores.aspx.designer.cs">
+      <DependentUpon>DetallesProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesVenta.aspx.cs">
+      <DependentUpon>DetallesVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesVenta.aspx.designer.cs">
+      <DependentUpon>DetallesVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarVentas.aspx.cs">
+      <DependentUpon>EliminarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarVentas.aspx.designer.cs">
+      <DependentUpon>EliminarVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado.aspx.cs">
       <DependentUpon>Empleado.aspx</DependentUpon>
@@ -196,6 +239,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exito.aspx.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exito.aspx.designer.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -218,12 +268,26 @@
     <Compile Include="ModificarCompra.aspx.designer.cs">
       <DependentUpon>ModificarCompra.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModificarVentas.aspx.cs">
+      <DependentUpon>ModificarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarVentas.aspx.designer.cs">
+      <DependentUpon>ModificarVentas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MostrarCompras.aspx.cs">
       <DependentUpon>MostrarCompras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MostrarCompras.aspx.designer.cs">
       <DependentUpon>MostrarCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarVentas.aspx.cs">
+      <DependentUpon>MostrarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarVentas.aspx.designer.cs">
+      <DependentUpon>MostrarVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuestraMaster.Master.cs">
       <DependentUpon>NuestraMaster.Master</DependentUpon>

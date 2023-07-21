@@ -59,7 +59,36 @@ namespace Negocio
 
         }
 
+        public int BuscarId(string dni)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int codigo = 0;
 
+            try
+            {
+
+                datos.setearQuery("select id as ID from clientes where dni= "+dni);
+                datos.ejecutarLectura();
+
+                if(datos.Lector.Read())
+                {
+                    codigo = (int)datos.Lector["ID"];
+                }
+                
+
+                return codigo;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public int TraerUltimoId()
         {
             AccesoDatos datos = new AccesoDatos();

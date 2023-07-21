@@ -14,11 +14,11 @@ namespace Dominio
 
         public string FormaPago { get; set; }
 
-        public char Estado { get; set; }
-
         public DateTime FechaCompra { get; set; }
 
-        public DateTime FechaFin { get; set; }
+        public decimal Precio { get; set; }
+        public int Cantidad { get; set; }
 
+        public decimal Total { get; set; }
     }
 }

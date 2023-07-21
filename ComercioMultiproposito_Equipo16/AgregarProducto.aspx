@@ -72,7 +72,7 @@
             <asp:Button Text="Modificar Producto" ID="btnModificar" runat="server" CssClass="btn btn-primary" OnClick="btnModificar_Click"/>
         </div>
         <div>
-            <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina anterior" OnClick="btnVolver_Click" CssClass="btn btn-primary"/>
+            <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina anterior" OnClick="btnVolver_Click" CssClass="btn btn-info"/>
         </div>
     </div>
 

@@ -34,32 +34,45 @@ namespace ComercioMultiproposito_Equipo16
 
             try
             {
-                if (e.CommandName == "Modificar")
-                {
 
+                if (e.CommandName =="Detalle")
+                {
                     string codigo = dgvCompras.DataKeys[IndiceFila].Value.ToString();
 
-                    Response.Redirect("ModificarCompra.aspx?id=" + codigo);
-
+                    Response.Redirect("DetallesCompra.aspx?id=" + codigo);
                 }
-                else if (e.CommandName == "Eliminar")
-                {
 
-                    string codigo = dgvCompras.DataKeys[IndiceFila].Value.ToString();
+                //if (e.CommandName == "Modificar")
+                //{
 
-                    CompraNegocio negocio = new CompraNegocio();
+                //    string codigo = dgvCompras.DataKeys[IndiceFila].Value.ToString();
 
-                    negocio.Eliminar(codigo);
+                //    Response.Redirect("ModificarCompra.aspx?id=" + codigo);
 
-                    Response.Redirect(Request.Url.AbsoluteUri);
-                }
-         
+                //}
+                //else if (e.CommandName == "Eliminar")
+                //{
+
+                //    string codigo = dgvCompras.DataKeys[IndiceFila].Value.ToString();
+
+                //    CompraNegocio negocio = new CompraNegocio();
+
+                //    negocio.Eliminar(codigo);
+
+                //    Response.Redirect(Request.Url.AbsoluteUri);
+                //}
+
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Compras.aspx");
         }
     }
 }

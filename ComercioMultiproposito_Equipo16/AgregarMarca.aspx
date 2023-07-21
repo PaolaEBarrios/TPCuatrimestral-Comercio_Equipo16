@@ -50,7 +50,7 @@
     </style>
 
     <div class="h2_AddMarca">
-        <asp:Label ID="lblAgregarMarca" runat="server" Text="Agregar Marca"></asp:Label>
+        <asp:Label ID="lblAgregarMarca" runat="server" Text="Agregar Marca" style="font-size:30px;font-family:Arial;"></asp:Label>
 
     </div>
 
@@ -70,16 +70,16 @@
 
 %>
         <div class="form_agregar-btn">
-            <asp:Button ID="btnAgregarMarca" cssclass="btn btn-primary" runat="server" Text="Añadir nueva marca" Onclick="btnAgregarMarca_Click"/>
+            <asp:Button ID="btnAgregarMarca" cssclass="btn btn-info" runat="server" Text="Añadir nueva marca" Onclick="btnAgregarMarca_Click"/>
         </div>
         
         <div class="form_agregar-btnModificar">
-            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-primary" OnClick="btnModificar_Click" />
+            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-info" OnClick="btnModificar_Click" />
         </div>
         
         <% } %>
         <div class="form_agregar-btnVolver">
-            <asp:Button ID="btnVolver" runat="server" cssclass="btn btn-primary" Text="Volver atras" OnClick="btnVolver_Click"   />
+            <asp:Button ID="btnVolver" runat="server" cssclass="btn btn-info" Text="Volver atras(Marcas)" OnClick="btnVolver_Click"   />
         </div>
         
     </div>

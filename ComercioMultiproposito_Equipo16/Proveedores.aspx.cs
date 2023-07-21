@@ -17,8 +17,6 @@ namespace ComercioMultiproposito_Equipo16
             {
                 ProveedoresNegocio negocio = new ProveedoresNegocio();
 
-                //dgvProveedores.DataSource = negocio.listar();
-                //dgvProveedores.DataBind();
 
                 Session.Add("listaProveedores", negocio.listar());
                 dgvProveedores.DataSource = Session["listaProveedores"];
@@ -71,6 +69,11 @@ namespace ComercioMultiproposito_Equipo16
                     Response.Redirect(Request.Url.AbsoluteUri);//redirige a la misma pagina 
                                                                //falta que al eliminar se confirme o se cancele y al eliminar agregue un cartel de eliminado
 
+                }
+                else if(e.CommandName ==  "Detalle")
+                {
+                    string codigo = dgvProveedores.DataKeys[rowIndex].Value.ToString();
+                    Response.Redirect("DetallesProveedores.aspx?id=" + codigo);
                 }
             }
             catch (Exception ex)

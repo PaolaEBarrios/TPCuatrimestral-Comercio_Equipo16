@@ -60,6 +60,43 @@ namespace Negocio
 
         }
 
+        public Proveedor TraerRegistro(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Proveedor aux= new Proveedor();
+
+            try
+            {
+                datos.setearQuery("Select p.id as ID,p.nombre as Nombre,p.direccion as Domicilio, p.telefono as Telefono, p.correo as Email, p.dni as DNI from Proveedores as p where p.id= @id");
+                datos.setParameters("@id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux.Codigo = (int)datos.Lector["Id"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+
+                    aux.Domicilio = (string)datos.Lector["Domicilio"];
+
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+
+                    aux.Email = (string)datos.Lector["Email"];
+
+                    aux.Dni = (string)datos.Lector["DNI"];
+
+                    return aux;
+                }
+
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
 
         public int TraerUltimoId()
         {
@@ -150,6 +187,40 @@ namespace Negocio
             }
         }
 
+        public void AgregarProductosProveedor(List<int> listaProd, int codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "INSERT INTO proveedores_productos (id_proveedor, id_producto) VALUES ";
+
+                for (int i = 0; i < listaProd.Count; i++)
+                {
+                   
+                        consulta += "(" + codigo + ", " + listaProd[i] + ")";
+
+
+                        if (i < listaProd.Count - 1)
+                        {
+                            consulta += ", ";
+                        }
+                }
+
+                datos.setearQuery(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void AgregarProveedor(Proveedor proveedor)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -192,13 +263,13 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        public bool ExisteNombreProveedor(string nombre)
+        public bool ExisteDniProveedor(string dni)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearQuery("select id from Proveedores where nombre = '" + nombre + "'");
+                datos.setearQuery("select id from Proveedores where dni = '" + dni + "'");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())

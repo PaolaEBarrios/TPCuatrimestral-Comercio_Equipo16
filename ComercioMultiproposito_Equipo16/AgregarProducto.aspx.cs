@@ -15,6 +15,12 @@ namespace ComercioMultiproposito_Equipo16
         {
             ProductoNegocio negocio = new ProductoNegocio();
 
+            if (Session["id"] != null && Session["Tipo"] != null)
+            {
+                btnVolver.Visible = false;
+            }
+
+
             if (Request.QueryString["id"] != null)
             {
                 btnAgregar.Visible = false;
@@ -27,14 +33,29 @@ namespace ComercioMultiproposito_Equipo16
                 listProductos = negocio.TraerUnRegistro(id);
                 if(!IsPostBack)
                 {
-                    txtCodigo.Text = listProductos[0].Codigo.ToString();
-                    txtDescripcion.Text = listProductos[0].Descripcion;
-                    txtGanancia.Text = listProductos[0].Ganancia.ToString();
-                    txtPrecio.Text = listProductos[0].Precio.ToString();
-                   
-                    txtProducto.Text = listProductos[0].NombreProducto;
-                    txtStock.Text = listProductos[0].Stock.ToString();
-                    txtStockMin.Text = listProductos[0].StockMin.ToString();
+                    
+
+                    if (Session["id"] != null && Session["tipo"] != null)
+                    {
+                        int cod = (int)Session["id"];
+                        string tipo = Session["tipo"].ToString();
+
+                        btnVolver.Visible = false;
+
+                        Session.Remove("id");
+                        Session.Remove("tipo");
+                    }
+                    else
+                    {
+                        txtCodigo.Text = listProductos[0].Codigo.ToString();
+                        txtDescripcion.Text = listProductos[0].Descripcion;
+                        txtGanancia.Text = listProductos[0].Ganancia.ToString();
+                        txtPrecio.Text = listProductos[0].Precio.ToString();
+
+                        txtProducto.Text = listProductos[0].NombreProducto;
+                        txtStock.Text = listProductos[0].Stock.ToString();
+                        txtStockMin.Text = listProductos[0].StockMin.ToString();
+                    }
 
                 }
 
@@ -118,25 +139,68 @@ namespace ComercioMultiproposito_Equipo16
                     string nombre = ddListMarca.SelectedItem.Text;
                     aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
 
-                    aux.Ganancia = int.Parse(txtGanancia.Text);
-                    aux.Stock = int.Parse(txtStock.Text);
-                    aux.StockMin = int.Parse(txtStockMin.Text);
-                    aux.Precio = int.Parse(txtPrecio.Text);
-                    aux.Descripcion = txtDescripcion.Text;
+                    if(txtGanancia.Text != "")
+                    {
+                        aux.Ganancia = int.Parse(txtGanancia.Text);
+                    }
+                    else
+                    {
+                        aux.Ganancia = 0;
+                    }
+                    
+                    if(txtStock.Text != "")
+                    {
+                        aux.Stock = int.Parse(txtStock.Text);
+                    }
+                    else
+                    {
+                        aux.Stock = 0;
+                    }
 
-                    CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                    if(txtStockMin.Text != "")
+                    {
+                        aux.StockMin = int.Parse(txtStockMin.Text);
+                    }
+                    else
+                    {
+                        aux.StockMin = 0;
+                    }
+                    if(txtPrecio.Text != "")
+                    {
+                        aux.Precio = int.Parse(txtPrecio.Text);
+                    }
+                    else
+                    {
+                        aux.Precio = 0;
+                    }
+                    
 
-                    aux.Categoria = new Categoria();
-                    nombre = ddListCategoria.SelectedItem.Text;
+                    if (txtDescripcion.Text != "")
+                    {
+                        aux.Descripcion = txtDescripcion.Text;
+                        CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                    aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+                        aux.Categoria = new Categoria();
+                        nombre = ddListCategoria.SelectedItem.Text;
+
+                        aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
 
 
-                    negocio.Agregar(aux);
+                        negocio.Agregar(aux);
 
 
-                    lblAviso.Text = "PRODUCTO AÑADIDO CORRECTAMENTE";
-                    lblAviso.ForeColor = System.Drawing.Color.Green;
+                        lblAviso.Text = "PRODUCTO AÑADIDO CORRECTAMENTE";
+                        lblAviso.ForeColor = System.Drawing.Color.Green;
+
+                        
+                    }
+                    else
+                    {
+                        lblAviso.Text = "Por favor cargue una descripcion";
+                        lblAviso.ForeColor = System.Drawing.Color.Red;
+                    }
+
+                    
                 }
                 else
                 {
@@ -178,26 +242,63 @@ namespace ComercioMultiproposito_Equipo16
                     string nombre = ddListMarca.SelectedItem.Text;
                     aux.Marca.Codigo = marcaNegocio.TraerIdparaGuardar(nombre);
 
-                    aux.Ganancia = int.Parse(txtGanancia.Text);
-                    aux.Stock = int.Parse(txtStock.Text);
-                    aux.StockMin = int.Parse(txtStockMin.Text);
+                    if(txtGanancia.Text != "")
+                    {
+                        aux.Ganancia = int.Parse(txtGanancia.Text);
+                    }
+                    else
+                    {
+                        aux.Ganancia = 0;
+                    }
+                    if(txtStock.Text != "")
+                    {
+                        aux.Stock = int.Parse(txtStock.Text);
+                    }
+                    else
+                    {
+                        aux.Stock = 0;
+                    }
 
-                    aux.Precio = decimal.Parse(txtPrecio.Text);
+                    if(txtStockMin.Text != "")
+                    {
+                        aux.StockMin = int.Parse(txtStockMin.Text);
+                    }
+                    else
+                    {
+                        aux.StockMin= 0;
+                    }
+                    if(txtPrecio.Text != "")
+                    {
+                        aux.Precio = decimal.Parse(txtPrecio.Text);
+                    }
+                    else
+                    {
+                        aux.Precio = 0;
+                    }
 
-                    aux.Descripcion = txtDescripcion.Text;
-
-                    CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
-                    aux.Categoria = new Categoria();
-                    nombre = ddListCategoria.SelectedItem.Text;
-
-                    aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+                    if(txtDescripcion.Text != "")
+                    {
+                        aux.Descripcion = txtDescripcion.Text;
 
 
-                    negocio.Modificar(aux);
+                        CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                    lblAviso.Text = "PRODUCTO Modificado CORRECTAMENTE";
-                    lblAviso.ForeColor = System.Drawing.Color.Green;
+                        aux.Categoria = new Categoria();
+                        nombre = ddListCategoria.SelectedItem.Text;
+
+                        aux.Categoria.Codigo = categoriaNegocio.TraerIDGuardar(nombre);
+
+
+                        negocio.Modificar(aux);
+
+                        
+
+                    }
+                    else
+                    {
+                        lblAviso.Text = "POR FAVOR CARGUE LA DESCRIPCION PARA MODIFICAR";
+                        lblAviso.ForeColor = System.Drawing.Color.Red;
+                    }
 
                 }
                 else

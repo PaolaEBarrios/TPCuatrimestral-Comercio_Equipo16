@@ -3,8 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    Cuando se ingresa una compra, se debe registrar en qué proveedor se compró y qué; de ésta
-    manera se deben generar las líneas de stock correspondientes, el "stock actual" y el registro de los precios de compra. 
+
 
     <style>
         .tituloCompras
@@ -48,13 +47,15 @@
 
     <div class="contenedorBotones">
         <div class="contenedorBotones-btnAgregar">
-            <asp:Button ID="btnAgregar" runat="server" Text="Agregar nueva compra"  CssClass="btn btn-primary" OnClick="btnAgregar_Click"/>
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar nueva compra"  CssClass="btn btn-info" OnClick="btnAgregar_Click"/>
         </div>
         <div class="contenedorBotones-btnMostrar">
-            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todas las compras" CssClass="btn btn-primary" OnClick="btnMostrar_Click"/>
+            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todas las compras" CssClass="btn btn-info" OnClick="btnMostrar_Click"/>
         </div>
         
-
+        
     </div>
-
+    <div class="contenedorBotones">
+            <asp:Button ID="btnVolver" runat="server" Text="Volver al menu" CssClass="btn btn-info" OnClick="btnVolver_Click" />
+        </div>
 </asp:Content>

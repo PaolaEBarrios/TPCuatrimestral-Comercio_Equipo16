@@ -6,8 +6,7 @@
     <style>
         .btn {
             display: flex;
-            border-color: aqua;
-            background-color: aquamarine;
+
             padding: 10px;
             margin: 5px;
         }
@@ -34,12 +33,7 @@
             justify-content: center;
         }
 
-        .col {
-            width: 400px;
-        }
 
-        .row {
-        }
 
         .cajaBuscar {
             padding: 10px;
@@ -55,8 +49,7 @@
     </div>
 
     <div class="cajaBuscar">
-        <asp:TextBox ID="txtBuscarProveedores" runat="server" OnTextChanged="txtBuscarProveedores_TextChanged"></asp:TextBox>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" class="btn" />
+        <asp:TextBox ID="txtBuscarProveedores" runat="server" OnTextChanged="txtBuscarProveedores_TextChanged" AutoPostBack="true" CssClass="form form-control" style="width:250px" placeholder="Buscar proveedor por Cuit/Dni/CUIL"></asp:TextBox>
     </div>
 
     <%  if (Session["usuario"]!= null && ((Dominio.Usuario)Session["usuario"]).TipoUsuario == Dominio.TipoUsuario.ADMIN) {
@@ -64,11 +57,16 @@
 %>
 
     <div class="cajabotones">
-        <asp:Button ID="btnAgregarProveedores" runat="server" Text="Agregar nuevo Proveedor" CssClass="btn btn-Primary" class="btn" OnClick="btnAgregarProveedores_Click" />
+        <asp:Button ID="btnAgregarProveedores" runat="server" Text="Agregar nuevo Proveedor" CssClass="btn btn-info" class="btn" OnClick="btnAgregarProveedores_Click" />
     </div>
 
 
       <% } %>
+
+    <div class="cajabotones">
+            <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-info" OnClick="btnEmpleado_Click"/>
+    </div>
+
     <div class="cajaDGV">
         <div class="row">
             <div class="col">
@@ -78,8 +76,9 @@
                         <asp:BoundField HeaderText="Codigo" DataField="Codigo" Visible="false" />
                         <asp:BoundField HeaderText="Proveedores" DataField="Nombre" />
                         <asp:BoundField HeaderText="CUIT/DNI" DataField="Dni"/>
-                        <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
-                        <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
+                        <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" />
+                        <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" />
+                        <asp:ButtonField CommandName="Detalle" Text="Detalles" ButtonType="Button" />
          </Columns>
 
     </asp:GridView>
@@ -89,7 +88,7 @@
 
     </div>
 
-    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
    
 
 </asp:Content>

@@ -18,10 +18,9 @@ namespace ComercioMultiproposito_Equipo16
             {
                 MarcaNegocio negocio = new MarcaNegocio();
 
-                dgvMarcas.DataSource = negocio.listar(); 
-                
+                Session.Add("listaMarcas", negocio.listar());
 
-
+                dgvMarcas.DataSource = Session["listaMarcas"];
                 dgvMarcas.DataBind();
               
             }

@@ -31,8 +31,7 @@ namespace ComercioMultiproposito_Equipo16
 
                     if(compra != null)
                     {
-                        
-                        ddlEstado.SelectedItem.Value = compra.Estado.ToString();
+
                         ddlMediosPago.SelectedItem.Value = compra.FormaPago;
                         ddlProveedores.SelectedItem.Value = compra.Proveedor.Codigo.ToString();
 
@@ -154,9 +153,7 @@ namespace ComercioMultiproposito_Equipo16
                         ///////////////////////////////////anio, mes, dia, hora, min, seg
                          DateTime fechaManual = new DateTime(1753, 1, 1, 00, 00, 00); ;
 
-                        aux.FechaFin = fechaManual;
-                        string estado = ddlEstado.SelectedItem.Text;
-                        aux.Estado = estado[0];
+
 
                         aux.FormaPago = ddlMediosPago.SelectedItem.Text;
 

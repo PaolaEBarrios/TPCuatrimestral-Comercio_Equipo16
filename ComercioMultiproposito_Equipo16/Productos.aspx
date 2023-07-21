@@ -6,8 +6,7 @@
         <style>
         .btn {
             display: flex;
-            border-color: aqua;
-            background-color: aquamarine;
+
             padding: 10px;
             margin: 5px;
         }
@@ -34,12 +33,7 @@
             justify-content: center;
         }
 
-        .col {
-            width: 400px;
-        }
 
-        .row {
-        }
 
         .cajaBuscar {
             padding: 10px;
@@ -57,13 +51,14 @@
 
     <div class="cajaBuscar">
         <asp:TextBox ID="txtBuscarProductos" AutoPostBack="true" runat="server" OnTextChanged="txtBuscarProductos_TextChanged"></asp:TextBox>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" />
+
     </div>
 
 
 
     <div class="cajabotones">
-        <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar nuevo Producto" CssClass="btn btn-Primary" class="btn" OnClick="btnAgregarProducto_Click" />
+        <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar nuevo Producto" CssClass="btn btn-info" class="btn" OnClick="btnAgregarProducto_Click" />
+            <asp:Button ID="btnEmpleado" runat="server" Text="Volver al menu" cssclass="btn btn-info" OnClick="btnEmpleado_Click"/>
     </div>
 
 
@@ -79,9 +74,9 @@
                         <asp:BoundField HeaderText="Marca" DataField="Marca"/>
                         <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
                         <asp:BoundField HeaderText="Precio" DataField="Precio"/>
-                        <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
-                        <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
-                        <asp:ButtonField CommandName="Detalles" Text="Detalles" ButtonType="Button" ItemStyle-CssClass="estiloBTNdgv" />
+                        <asp:ButtonField CommandName="Modificar" Text="Modificar" ButtonType="Button"  />
+                        <asp:ButtonField CommandName="Eliminar" Text="Eliminar" ButtonType="Button"  />
+                        <asp:ButtonField CommandName="Detalles" Text="Detalles" ButtonType="Button"  />
                    
                    </Columns>
 
@@ -92,6 +87,6 @@
 
     </div>
 
-    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
 
 </asp:Content>

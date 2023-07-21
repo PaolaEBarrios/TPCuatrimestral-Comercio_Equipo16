@@ -16,40 +16,70 @@ namespace ComercioMultiproposito_Equipo16
         {
             if(!IsPostBack)
             {
+                if (Session["listProductosCompra"] == null)
+                {
+                    Session["listProductosCompra"] = new List<Producto>();
+                }
+
+                if (Session["listCantidadCompra"] == null)
+                {
+                    Session["listCantidadCompra"] = new List<int>();
+                }
+
                 cargarProveedores();
                 cargarMediosDePago();
-                cargarEstado();
+
+                if (Session["proveedorSeleccionado"] != null)
+                {
+                    string proveedorSeleccionado = Session["proveedorSeleccionado"].ToString();
+                    ddlProveedores.SelectedValue = proveedorSeleccionado;
+                    ddlProveedores.Enabled = false; 
+                }
+
+                // Cargar los productos para el proveedor seleccionado
+                ddlProveedores_SelectedIndexChanged(sender, e);
             }
             
         }
+        protected void ChkProveedor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkProveedor.Checked == true)
+            {
+                Session["proveedorSeleccionado"] = null;
+                ddlProveedores.Enabled = true;
 
+            }
+        }
         protected void ddlProveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string proveedorSeleccionado = ddlProveedores.SelectedItem.Value;
-
-            ProveedoresNegocio negocio = new ProveedoresNegocio();
-
-            List<Producto> listaProducto = new List<Producto>(); 
             
 
-            listaProducto = negocio.buscarProductos(proveedorSeleccionado);
+                string proveedorSeleccionado = ddlProveedores.SelectedItem.Value;
 
-            ddlProductos.Items.Clear();
+                if (Session["proveedorSeleccionado"] == null)
+                {
+                    ProveedoresNegocio negocio = new ProveedoresNegocio();
+                    List<Producto> listaProducto = new List<Producto>();
 
-            ddlProductos.DataSource = listaProducto;
-            ddlProductos.DataTextField = "NombreProducto";
-            ddlProductos.DataValueField = "Codigo";
-            ddlProductos.DataBind();
+                    listaProducto = negocio.buscarProductos(proveedorSeleccionado);
 
+                    ddlProductos.Items.Clear();
+                    ddlProductos.DataSource = listaProducto;
+                    ddlProductos.DataTextField = "NombreProducto";
+                    ddlProductos.DataValueField = "Codigo";
+                    ddlProductos.DataBind();
+                }
+
+                Session["proveedorSeleccionado"] = proveedorSeleccionado;
+                ddlProveedores.SelectedValue = proveedorSeleccionado;
+
+
+                ddlProveedores.Enabled = false;
+                ChkProveedor.Checked = false;
 
         }
 
-        public void cargarEstado()
-        {
-            ddlEstado.Items.Add("P - PENDIENTE");
-            ddlEstado.Items.Add("C - CONCLUIDO");
-            ddlEstado.Items.Add("R - RECHAZADO");
-        }
+
         public void cargarMediosDePago()
         {
             ddlMediosPago.Items.Add("Efectivo");
@@ -103,29 +133,38 @@ namespace ComercioMultiproposito_Equipo16
                         aux.Codigo = compraNegocio.TraerUltimoId();
 
                         aux.FechaCompra = DateTime.Now;
-
-                        aux.Producto = new Producto();
-                        aux.Producto.Codigo = int.Parse(ProductoSeleccionado);
-
+                        
                         aux.Proveedor = new Proveedor();
                         aux.Proveedor.Codigo = int.Parse(ddlProveedores.SelectedItem.Value);
                         
-                        aux.FechaFin = default(DateTime);
 
-                        string estado = ddlEstado.SelectedItem.Text;
-                        aux.Estado = estado[0];
 
                         aux.FormaPago = ddlMediosPago.SelectedItem.Text;
 
-                        compraNegocio.Agregar(aux);
+                        
+                        //falta sacar el total de la compra 
+
+
+                        //ahora detalles de compra
+
+
+                        //asignarle
+                        List<Producto> listaProductosCompra = (List<Producto>)Session["listProductosCompra"];
+                        List<int> listaCantidadCompra = (List<int>)Session["listCantidadCompra"];
+
+                        compraNegocio.Agregar(aux,listaProductosCompra,listaCantidadCompra);
+                        
                         //modificar stock
-
                         negocio.modificarStock(ProductoSeleccionado, cant);
-
+                        negocio.AgregarDetalles(aux,listaProductosCompra,listaCantidadCompra);
 
 
                         lblAviso.Text = "Compra registrada con éxito";
                         lblAviso.ForeColor = System.Drawing.Color.Green;
+
+                        Session["listProductosCompra"] = null;
+                        Session["listCantidadCompra"] = null;
+
                     }
                     else
                     {
@@ -152,10 +191,95 @@ namespace ComercioMultiproposito_Equipo16
 
         protected void ddlProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
 
 
 
         }
+
+        protected void btnAgregarMasProductos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlProductos.SelectedItem != null)
+                {
+
+                    ProductoNegocio negocio = new ProductoNegocio();
+                    Producto aux = new Producto();
+
+                    string codigo = ddlProductos.SelectedValue;
+
+                    aux = negocio.traerProducto(codigo);
+
+                    //chequear si el producto existe en detalles compra
+
+                    bool Bandera = false;
+                    List<Producto> listaProductos = (List<Producto>)Session["listProductosCompra"];
+
+                    if(listaProductos != null)
+                    {
+                        foreach (Producto producto in listaProductos)
+                        {
+                            if (producto.Codigo.ToString() == codigo)
+                            {
+                                Bandera = true;
+                                break;
+                            }
+                        }
+
+                    }
+
+                    if (!Bandera)
+                    {
+                        if (txtCantidad.Text != "")
+                        {
+                            int cant = int.Parse(txtCantidad.Text);
+
+                            //List<Producto> listaProductos = (List<Producto>)Session["listaProductos"];
+                            List<int> listaCantidad = (List<int>)Session["listCantidadCompra"];
+
+
+
+                            listaProductos.Add(aux);
+                            listaCantidad.Add(cant);
+
+
+                            Session["listaProductosCompra"] = listaProductos;
+                            Session["listaCantidadCompra"] = listaCantidad;
+
+
+                        }
+                        else
+                        {
+                            lblAviso.Text = "Por favor ingrese una cantidad para el producto";
+                            txtCantidad.BorderColor = System.Drawing.Color.Red;
+                        }
+                    }
+                    else
+                    {
+                        lblAviso.Text = "El producto ya fue añadido a la venta";
+                        lblAviso.ForeColor = System.Drawing.Color.Red;
+                    }
+                            
+
+                }
+                else
+                {
+
+                        
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Compras.aspx");
+        }
+
+
     }
 }

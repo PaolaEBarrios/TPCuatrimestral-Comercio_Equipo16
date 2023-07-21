@@ -20,9 +20,15 @@
             align-content:center;
             justify-items:center;
             
-           padding:30px;
+            padding:30px;
         }
-
+        .btnvolver
+        {
+            display:flex;
+            align-content:center;
+            justify-content:center;
+            padding-bottom:10px;
+        }
     </style>
 
     <div class="tituloMostrar">
@@ -31,20 +37,21 @@
     <div class="buscarConText">
         <asp:TextBox ID="txtBuscar" placeholder="Buscar por id compra" runat="server" CssClass="form form-control" style="width:300px;"></asp:TextBox>
     </div>
+        <div class="btnvolver">
+        <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina de compras"  CssClass="btn btn-info" OnClick="btnVolver_Click"/>
+    </div>
             <div class="row">
             <div class="col">
                 <asp:GridView ID="dgvCompras" OnRowCommand="dgvCompras_RowCommand" DataKeyNames="Codigo" runat="server" CssClass="table table-dark " AutoGenerateColumns="false">
                     <Columns>
 
                         <asp:BoundField HeaderText="ID de compra" DataField="Codigo" />
+                        <asp:BoundField HeaderText=" CUIT/CUIL/DNI PROVEEDOR " DataField="Proveedor.dni"/>
+                        <asp:BoundField HeaderText="Nombre del proveedor" DataField="Proveedor.Nombre"/>
                         
-                        <asp:BoundField HeaderText=" Forma de pago " DataField="FormaPago"  />
-                        <asp:BoundField HeaderText=" Proveedor " DataField="Proveedor"/>
-                        <asp:BoundField HeaderText=" Productos " DataField="Producto" />
-                        <asp:BoundField HeaderText=" Estado de la compra" DataField="Estado"/>
+                        <asp:BoundField HeaderText="Forma de pago" DataField="FormaPago"/>
                         <asp:BoundField HeaderText=" Fecha de compra " DataField="FechaCompra" />
-                        <asp:ButtonField CommandName="Modificar"  ButtonType="Button" Text="Modificar Compra" />
-                        <asp:ButtonField CommandName="Eliminar" ButtonType="Button" Text="Eliminar compra" />
+                        <asp:ButtonField CommandName="Detalle" ButtonType="Button" Text="Detalles de la compra"/>
                     </Columns>
 
                 </asp:GridView>

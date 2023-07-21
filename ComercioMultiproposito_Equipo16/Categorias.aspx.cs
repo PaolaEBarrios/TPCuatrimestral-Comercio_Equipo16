@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
 
 namespace ComercioMultiproposito_Equipo16
 {
@@ -16,10 +17,10 @@ namespace ComercioMultiproposito_Equipo16
             {
                 CategoriaNegocio negocio = new CategoriaNegocio();
 
-                dgvCategorias.DataSource = negocio.listar();
 
+                Session.Add("listaCategorias", negocio.listar());
 
-
+                dgvCategorias.DataSource = Session["listaCategorias"];
                 dgvCategorias.DataBind();
 
             }
@@ -76,6 +77,13 @@ namespace ComercioMultiproposito_Equipo16
             Response.Redirect("Empleado.aspx");
         }
 
+        protected void txtBuscarCategoria_TextChanged(object sender, EventArgs e)
+        {
+            List<Categoria> lista = (List<Categoria>)Session["listaCategorias"];
+            List<Categoria> listaFiltrada = lista.FindAll(x => x.NombreCategoria.ToUpper().Contains(txtBuscarCategoria.Text.ToUpper()));
+            dgvCategorias.DataSource = listaFiltrada;
+            dgvCategorias.DataBind();
+        }
     }
     
 }

@@ -24,13 +24,13 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.TextBox txtBuscarClientes;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control btnEmpleado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.Button btnEmpleado;
 
         /// <summary>
         /// Control btnAgregarClientes.
@@ -49,14 +49,5 @@ namespace ComercioMultiproposito_Equipo16
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvClientes;
-
-        /// <summary>
-        /// Control btnEmpleado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmpleado;
     }
 }

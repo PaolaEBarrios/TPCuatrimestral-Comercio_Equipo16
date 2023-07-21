@@ -2,6 +2,85 @@ Create Database Comercio_DB
 Go
 Use Comercio_DB
 Go
+
+delete from Compras 
+
+
+select c.apellido as apellido,c.nombre as nombre,c.dni as dni, c.telefono as telefono, c.correo as email from Clientes as c
+inner join Ventas as v on v.id_cliente=c.id
+where v.id=1
+
+
+select p.nombre,dv.cantidad,dv.precio,dv.total,v.fecha as fecha from Detalles_Venta as dv
+inner join Ventas as v on v.id=dv.id_venta
+inner join Productos as p on dv.id_producto=p.id
+where dv.id_venta=1
+
+select * from Productos
+
+
+create table factura
+(
+	idfactura bigint identity(1,1),
+	idcliente int not null foreign key  references clientes(id),
+	condicion varchar(20),
+	formadepago varchar(20),
+	fecha date not null,
+	primary key(idfactura),
+)
+
+
+create table detalles_factura
+(
+	idfactura bigint not null foreign key references factura(idfactura),
+	idproducto int not null foreign key references productos(id),
+	cantidad int not null check(cantidad>0),
+	preciounitario money check(preciounitario>0),
+	subtotal money not null,
+
+	primary key (idfactura,idproducto)
+
+)
+select * from Ventas
+Select * from Detalles_Venta
+
+
+
+alter table compras
+drop column estado
+alter table compras
+drop column fechafin
+alter table compras
+drop column totalcompra
+
+
+select * from Compras
+select * from Detalles_Compra
+
+select p.nombre,dc.cantidad,dc.precio,dc.Total  from Compras as c inner join Detalles_Compra as dc on dc.id_compra=c.id inner join productos as p on p.id=dc.id_producto
+where dc.
+
+
+select * from proveedores
+
+select * from Productos
+
+Select c.id as id, p.dni as dni, p.nombre as nombre,c.fecha as fecha, c.formaPago as formapago from Compras as c inner join Proveedores as p on p.id=c.id_proveedor
+
+Select p.nombre as nombre,p.dni as dni,p.correo as correo,p.telefono  from Compras as c inner join Proveedores as p on p.id=c.id_proveedor where c.id=1
+
+select * from Proveedores
+select * from Proveedores_Productos
+select * from Productos
+
+insert into Compras (id,id_proveedor,fecha,formaPago,FechaFin,estado,TotalCompra)
+values (1,1,'12-05-2023','Efectivo','1753-1-1','P',118000)
+
+insert into Detalles_Compra (id_compra,id_producto,cantidad,precio,total)
+values(1,1,5,600.00,3000),(1,2,5,23000,115000.00)
+
+select * from Productos
+
 CREATE TABLE Clientes (
   id INT PRIMARY KEY,
   nombre VARCHAR(100),
@@ -47,9 +126,9 @@ go
 alter table compras
 add estado char(1) not null
 go
-alter table compras 
-add id_productos int foreign key references productos(id)
-go
+
+alter table compras
+add TotalCompra decimal(10,2)
 
 alter table Proveedores
 Add dni varchar(11)
@@ -97,6 +176,8 @@ CREATE TABLE Proveedores_Productos ( --RELACIONAR PRODUCTOS Y PROVEEDORES--
 Go
 
 
+select * from Detalles_Compra
+
 
 CREATE TABLE Compras (
   id INT PRIMARY KEY,
@@ -105,6 +186,9 @@ CREATE TABLE Compras (
   FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id)
 )
 Go
+
+drop table Compras
+
 CREATE TABLE Detalles_Compra (
   id_compra INT,
   id_producto INT,
@@ -114,6 +198,9 @@ CREATE TABLE Detalles_Compra (
   FOREIGN KEY (id_producto) REFERENCES Productos(id)
 )
 Go
+
+alter table detalles_compra
+add Total money
 CREATE TABLE Ventas (
   id INT PRIMARY KEY,
   id_cliente INT,
@@ -130,6 +217,15 @@ CREATE TABLE Detalles_Venta ( --Productos Vendidos---
   FOREIGN KEY (id_producto) REFERENCES Productos(id)
 )
 Go
+
+
+ select * from Detalles_venta
+alter table detalles_venta
+add total money check(total > 0)
+
+alter table detalles_venta
+alter column precio money 
+
 CREATE TABLE Usuarios (
     [Id]       INT          IDENTITY (1, 1) NOT NULL,
     [Usuario]  VARCHAR (50) NULL,

@@ -6,8 +6,7 @@
         <style>
         .btn {
             display: flex;
-            border-color: aqua;
-            background-color: aquamarine;
+
             padding: 10px;
             margin: 5px;
         }
@@ -56,16 +55,19 @@
     </div>
 
     <div class="cajaBuscar">
-        <asp:TextBox ID="txtBuscarCategoria" runat="server"></asp:TextBox>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" class="btn" />
+        <asp:TextBox ID="txtBuscarCategoria" runat="server" CssClass="form form-control" style="width:200px;" placeholder="Buscar categoria..." AutoPostBack="true" OnTextChanged="txtBuscarCategoria_TextChanged"></asp:TextBox>
+      
     </div>
 
 
     <div class="cajabotones">
-        <asp:Button ID="btnAgregarCategoria" runat="server" Text="Agregar nueva Categoria" CssClass="btn btn-Primary" class="btn" OnClick="btnAgregarCategoria_Click" />
+        <asp:Button ID="btnAgregarCategoria" runat="server" Text="Agregar nueva Categoria" CssClass="btn btn-info" class="btn" OnClick="btnAgregarCategoria_Click" />
+    
     </div>
 
-
+    <div class="cajabotones">
+            <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-info" OnClick="btnEmpleado_Click"/>
+    </div>
 
     <div class="cajaDGV">
         <div class="row">
@@ -88,6 +90,6 @@
 
     </div>
 
-    <asp:Button ID="btnEmpleado" runat="server" Text="Volver" cssclass="btn btn-primary" OnClick="btnEmpleado_Click"/>
+
 
 </asp:Content>

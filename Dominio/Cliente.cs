@@ -9,6 +9,7 @@ namespace Dominio
     public class Cliente:Persona
     {
         public int Id { get; set; }
-        
+
+
     }
 }

@@ -24,15 +24,6 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.TextBox txtBuscarCategoria;
 
         /// <summary>
-        /// Control btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
-
-        /// <summary>
         /// Control btnAgregarCategoria.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnAgregarCategoria;
 
         /// <summary>
-        /// Control dgvCategorias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvCategorias;
-
-        /// <summary>
         /// Control btnEmpleado.
         /// </summary>
         /// <remarks>
@@ -58,5 +40,14 @@ namespace ComercioMultiproposito_Equipo16
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEmpleado;
+
+        /// <summary>
+        /// Control dgvCategorias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvCategorias;
     }
 }

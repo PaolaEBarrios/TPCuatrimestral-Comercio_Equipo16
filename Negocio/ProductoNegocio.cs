@@ -18,7 +18,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Select p.id as Id,p.nombre as Producto,m.nombre as Marca,c.nombre as Categoria,p.precio as Precio from Productos as p left join marcas as m on m.id=p.id_marca left join Categorias as c on c.id=p.id_categoria");
+                datos.setearQuery("Select p.id as Id,p.nombre as Producto,m.nombre as Marca,c.nombre as Categoria,p.precio as Precio, p.ganancia as Ganancia from Productos as p left join marcas as m on m.id=p.id_marca left join Categorias as c on c.id=p.id_categoria");
 
                 datos.ejecutarLectura();
 
@@ -50,6 +50,8 @@ namespace Negocio
                     if (!(datos.Lector["Precio"] is DBNull))
                         aux.Precio = (decimal)datos.Lector["Precio"];
 
+                    if (!(datos.Lector["Ganancia"] is DBNull))
+                        aux.Ganancia = (int)datos.Lector["Ganancia"];
 
                     lista.Add(aux);
                 }
@@ -171,6 +173,44 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void AgregarDetalles(Compra aux, List<Producto> listaProductosCompra, List<int> listaCantidadCompra)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "INSERT INTO Detalles_Compra (id_compra, id_producto, cantidad, precio, total) VALUES ";
+
+                for (int i = 0; i < listaProductosCompra.Count; i++)
+                {
+                    string precio = listaProductosCompra[i].Precio.ToString();
+                    precio = precio.Replace(",", ".");
+
+                    decimal tot = (listaProductosCompra[i].Precio * listaCantidadCompra[i]);
+                    string total = tot.ToString();
+                    total = total.Replace(",", ".");
+
+                    consulta += "(" + aux.Codigo + ", " + listaProductosCompra[i].Codigo + ", " + listaCantidadCompra[i] + ", " +
+                        precio + ", " + total + ")";
+
+                    if (i < listaProductosCompra.Count - 1)
+                        consulta += ",";
+                }
+
+                datos.setearQuery(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void Agregar(Producto aux)
         {
 
@@ -241,7 +281,7 @@ namespace Negocio
 
             try
             {
-                datos.setearQuery("Select p.id as Id,p.nombre as Producto,m.nombre as Marca, m.id as idMarca ,c.nombre as Categoria, c.id as idCategoria,p.precio as Precio, ganancia as Ganancia, stock_actual as Stock,stock_minimo as StockMinimo,descripcion as Descripcion from Productos as p left join marcas as m on m.id=p.id_marca left join Categorias as c on c.id=p.id_categoria");
+                datos.setearQuery("select p.id as Id,p.nombre as NombreProducto,p.precio as Precio, m.nombre as Marca,m.id as IdMarca,c.id as IdCategoria,c.nombre as Categoria,p.stock_actual as Stock,p.stock_minimo as StockMin,p.ganancia as Ganancia,p.descripcion as Descripcion  from Productos as p inner join Marcas as m on m.id = p.id_marca inner join Categorias as c on c.id = p.id_categoria");
 
                 datos.ejecutarLectura();
 
@@ -249,14 +289,14 @@ namespace Negocio
                 {
                     Producto aux = new Producto();
 
-                    if (cod == (int)datos.Lector["id"])
+                    if (cod == (int)datos.Lector["Id"])
                     {
                         if (!(datos.Lector["Id"] is DBNull))
                             aux.Codigo = (int)datos.Lector["Id"];
 
 
-                        if (!(datos.Lector["Producto"] is DBNull))
-                            aux.NombreProducto = (string)datos.Lector["Producto"];
+                        if (!(datos.Lector["NombreProducto"] is DBNull))
+                            aux.NombreProducto = (string)datos.Lector["NombreProducto"];
 
                         aux.Marca = new Marca();
                         if (!(datos.Lector["Marca"] is DBNull))
@@ -264,8 +304,8 @@ namespace Negocio
                         else
                             aux.Marca.NombreMarca = "Sin Marca";
 
-                        if (!(datos.Lector["idMarca"] is DBNull))
-                            aux.Marca.Codigo = (int)datos.Lector["idMarca"];
+                        if (!(datos.Lector["IdMarca"] is DBNull))
+                            aux.Marca.Codigo = (int)datos.Lector["IdMarca"];
                         //chequear que hacer si no pasa
                         aux.Categoria = new Categoria();
                         if (!(datos.Lector["Categoria"] is DBNull))
@@ -273,8 +313,8 @@ namespace Negocio
                         else
                             aux.Categoria.NombreCategoria = "Sin categoria";
 
-                        if (!(datos.Lector["Categoria"] is DBNull))
-                            aux.Categoria.Codigo = (int)datos.Lector["idCategoria"];
+                        if (!(datos.Lector["IdCategoria"] is DBNull))
+                            aux.Categoria.Codigo = (int)datos.Lector["IdCategoria"];
                         //chequear que hacer si no pasa
 
                         if (!(datos.Lector["Precio"] is DBNull))
@@ -288,8 +328,8 @@ namespace Negocio
                             aux.Stock = (int)datos.Lector["Stock"];
                         //lo mismo
 
-                        if (!(datos.Lector["StockMinimo"] is DBNull))
-                            aux.StockMin = (int)datos.Lector["StockMinimo"];
+                        if (!(datos.Lector["StockMin"] is DBNull))
+                            aux.StockMin = (int)datos.Lector["StockMin"];
                         //lo mismo
 
                         if (!(datos.Lector["Descripcion"] is DBNull))
@@ -313,6 +353,78 @@ namespace Negocio
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+
+
+        public Producto traerProducto(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Producto aux = new Producto();
+
+
+            try
+            {
+                datos.setearQuery("Select p.id as Id,p.nombre as Producto,m.nombre as Marca, m.id as idMarca ,c.nombre as Categoria, c.id as idCategoria,p.precio as Precio, ganancia as Ganancia, stock_actual as Stock,stock_minimo as StockMinimo,descripcion as Descripcion from Productos as p left join marcas as m on m.id=p.id_marca left join Categorias as c on c.id=p.id_categoria where p.id = "+codigo);
+
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    if (!(datos.Lector["Id"] is DBNull))
+                        aux.Codigo = (int)datos.Lector["Id"];
+
+
+                    if (!(datos.Lector["Producto"] is DBNull))
+                        aux.NombreProducto = (string)datos.Lector["Producto"];
+
+                    aux.Marca = new Marca();
+                    if (!(datos.Lector["Marca"] is DBNull))
+                        aux.Marca.NombreMarca = (string)datos.Lector["Marca"];
+                    else
+                        aux.Marca.NombreMarca = "Sin Marca";
+
+                    if (!(datos.Lector["idMarca"] is DBNull))
+                        aux.Marca.Codigo = (int)datos.Lector["idMarca"];
+                    //chequear que hacer si no pasa
+                    aux.Categoria = new Categoria();
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                        aux.Categoria.NombreCategoria = (string)datos.Lector["Categoria"];
+                    else
+                        aux.Categoria.NombreCategoria = "Sin categoria";
+
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                        aux.Categoria.Codigo = (int)datos.Lector["idCategoria"];
+                    //chequear que hacer si no pasa
+
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    if (!(datos.Lector["Ganancia"] is DBNull))
+                        aux.Ganancia = (int)datos.Lector["Ganancia"];
+                    //lo mismo
+
+                    if (!(datos.Lector["Stock"] is DBNull))
+                        aux.Stock = (int)datos.Lector["Stock"];
+                    //lo mismo
+
+                    if (!(datos.Lector["StockMinimo"] is DBNull))
+                        aux.StockMin = (int)datos.Lector["StockMinimo"];
+                    //lo mismo
+
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    return aux;
+                }
+
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
 

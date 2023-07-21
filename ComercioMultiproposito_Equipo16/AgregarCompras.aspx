@@ -12,6 +12,10 @@
             justify-items: center;
             flex-direction: column;
         }
+        .divbtn
+        {
+            padding:10px;
+        }
 
         .LabelRegistrar {
             display: flex;
@@ -53,18 +57,30 @@
 
             <asp:Label ID="lblSeleccionProveedor" runat="server" Text="Seleccione al proveedor: "></asp:Label>
             <asp:DropDownList ID="ddlProveedores" CssClass="btn-group" runat="server" OnSelectedIndexChanged="ddlProveedores_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+            <asp:Label ID="lblchk" runat="server" Text="Desea seleccionar otro proveedor?">
+                <asp:CheckBox ID="ChkProveedor"  runat="server" Checked="false" AutoPostBack="true" OnCheckedChanged="ChkProveedor_CheckedChanged" />
+            </asp:Label>
+            
             <asp:Label ID="lblSeleccionProducto" runat="server" Text="Seleccione el producto: "></asp:Label>
-            <asp:DropDownList ID="ddlProductos" CssClass="btn-group" runat="server" OnSelectedIndexChanged="ddlProductos_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="ddlProductos" CssClass="btn-group" runat="server" OnSelectedIndexChanged="ddlProductos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
             <asp:Label ID="lblCantidad" runat="server" Text="Cantidad de unidades: "></asp:Label>
             <asp:TextBox ID="txtCantidad" runat="server" CssClass="form form-control" class="textbox"></asp:TextBox>
+            <div class="divbtn">
+            <asp:Button ID="btnAgregarMasProductos" runat="server" Text="Agregar producto a la compra" CssClass="btn btn-info" OnClick="btnAgregarMasProductos_Click" />
+
+            </div>
+
             <asp:Label ID="lblMediosPago" runat="server" Text="Medios de pago: "></asp:Label>
             <asp:DropDownList ID="ddlMediosPago" runat="server" CssClass="form form-control"></asp:DropDownList>
-            <asp:Label ID="lblEstado" runat="server" Text="Estado del pedido: "></asp:Label>
-            <asp:DropDownList ID="ddlEstado" runat="server" CssClass="btn-group"></asp:DropDownList>
+
 
         </div>
         <div class="botonCompra">
-            <asp:Button ID="btnAgregar" runat="server" Text="Registrar compra" OnClick="btnAgregar_Click" CssClass="btn btn-primary" />
+            <div class="divbtn">
+                <asp:Button ID="btnAgregar" runat="server" Text="Registrar compra" OnClick="btnAgregar_Click" CssClass="btn btn-info" />
+            </div>
+            
+            <asp:Button ID="btnVolver" CssClass="btn btn-info" runat="server" Text="Volver a la pagina compras" OnClick="btnVolver_Click" />
         </div>
     </div>
 

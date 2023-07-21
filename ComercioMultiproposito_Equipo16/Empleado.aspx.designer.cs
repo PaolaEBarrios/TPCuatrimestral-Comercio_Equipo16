@@ -42,13 +42,13 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnCompra;
 
         /// <summary>
-        /// Control btnVentas.
+        /// Control btnClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVentas;
+        protected global::System.Web.UI.WebControls.Button btnClientes;
 
         /// <summary>
         /// Control btnProveedores.
@@ -78,15 +78,6 @@ namespace ComercioMultiproposito_Equipo16
         protected global::System.Web.UI.WebControls.Button btnCategoria;
 
         /// <summary>
-        /// Control btnClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClientes;
-
-        /// <summary>
         /// Control btnProductos.
         /// </summary>
         /// <remarks>
@@ -94,5 +85,14 @@ namespace ComercioMultiproposito_Equipo16
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnProductos;
+
+        /// <summary>
+        /// Control btnVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVentas;
     }
 }
