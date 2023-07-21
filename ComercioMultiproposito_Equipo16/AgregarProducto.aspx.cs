@@ -291,7 +291,8 @@ namespace ComercioMultiproposito_Equipo16
 
                         negocio.Modificar(aux);
 
-                        
+                        string cat = "ModificarProducto";
+                        Response.Redirect("Exito.aspx?nombre=" +cat);
 
                     }
                     else

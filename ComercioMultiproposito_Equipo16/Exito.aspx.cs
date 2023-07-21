@@ -22,10 +22,19 @@ namespace ComercioMultiproposito_Equipo16
                         lblAviso.Text = "SE REGISTRO LA VENTA EXITOSAMENTE";
                         btnVolver.Text = " Volver a ventas";
                     }
-                    else
+                    else if(nombre == "proveedor")
                     {
                         lblAviso.Text = "SE AGREGO EL PROVEEDOR CON EXITO";
                         btnVolver.Text = "Volver a proveedores";
+                    }
+                    else if(nombre == "ModificarProducto")
+                    {
+                        lblAviso.Text = "SE MODIFICO EL PRODUCTO CON EXITO";
+                        btnVolver.Text = "Volver a productos";
+                    }
+                    else
+                    {
+                        Response.Redirect("Error.aspx");
                     }
                 }
             }
@@ -43,9 +52,13 @@ namespace ComercioMultiproposito_Equipo16
             {
                 Response.Redirect("Ventas.aspx");
             }
-            else
+            else if(nombre == "proveedor")
             {
                 Response.Redirect("Proveedores.aspx");
+            }
+            else if(nombre == "ModificarProducto")
+            {
+                Response.Redirect("Productos.aspx");
             }
             
         }

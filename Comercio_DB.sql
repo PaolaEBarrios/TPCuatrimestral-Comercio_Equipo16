@@ -63,6 +63,9 @@ where dc.
 
 select * from proveedores
 
+select * from Proveedores_Productos
+
+
 select * from Productos
 
 Select c.id as id, p.dni as dni, p.nombre as nombre,c.fecha as fecha, c.formaPago as formapago from Compras as c inner join Proveedores as p on p.id=c.id_proveedor

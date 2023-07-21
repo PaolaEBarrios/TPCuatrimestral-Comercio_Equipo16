@@ -270,6 +270,8 @@ namespace Negocio
 
                 string consulta = "INSERT INTO Detalles_Venta (id_venta, id_producto, cantidad, precio, total) VALUES ";
     
+                //CUANDO CARGO EL PRECIO TIENE QUE SER EL PRECIO DE LA VENTA
+
                 for (int i = 0; i < listaProducto.Count; i++)
                 {
                     string precio = listaProducto[i].Precio.ToString();

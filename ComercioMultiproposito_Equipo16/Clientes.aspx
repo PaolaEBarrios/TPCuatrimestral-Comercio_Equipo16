@@ -63,7 +63,7 @@
 %>
 
     <div class="cajabotones">
-        <asp:Button ID="btnAgregarClientes" runat="server" Text="Agregar nuevo Cliente" CssClass="btn btn-Primary" class="btn" OnClick="btnAgregarClientes_Click" />
+        <asp:Button ID="btnAgregarClientes" runat="server" Text="Agregar nuevo Cliente" CssClass="btn btn-info" class="btn" OnClick="btnAgregarClientes_Click" />
     </div>
 
 

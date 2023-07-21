@@ -66,10 +66,10 @@
         </div>
 
         <div>
-            <asp:Button ID="btnAgregar" runat="server" Text="Agregar Producto" CssClass="btn btn-primary"  OnClick="btnAgregar_Click"/>
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar Producto" CssClass="btn btn-info"  OnClick="btnAgregar_Click"/>
         </div>
         <div>
-            <asp:Button Text="Modificar Producto" ID="btnModificar" runat="server" CssClass="btn btn-primary" OnClick="btnModificar_Click"/>
+            <asp:Button Text="Modificar Producto" ID="btnModificar" runat="server" CssClass="btn btn-info" OnClick="btnModificar_Click"/>
         </div>
         <div>
             <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina anterior" OnClick="btnVolver_Click" CssClass="btn btn-info"/>

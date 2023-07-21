@@ -74,5 +74,21 @@ namespace ComercioMultiproposito_Equipo16
         {
             Response.Redirect("Compras.aspx");
         }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Compra> lista = (List<Compra>)Session["listaCompra"];
+                List<Compra> listaFiltrada = lista.FindAll(x => x.Codigo == int.Parse(txtBuscar.Text));
+                dgvCompras.DataSource = listaFiltrada;
+                dgvCompras.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

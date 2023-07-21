@@ -35,7 +35,7 @@
         <asp:Label ID="lblMostrarCompras" runat="server" Text="Listado de todas las compras"></asp:Label>
     </div>
     <div class="buscarConText">
-        <asp:TextBox ID="txtBuscar" placeholder="Buscar por id compra" runat="server" CssClass="form form-control" style="width:300px;"></asp:TextBox>
+        <asp:TextBox ID="txtBuscar" AutoPostBack="true" placeholder="Buscar por id compra" runat="server" CssClass="form form-control" style="width:300px;" OnTextChanged="txtBuscar_TextChanged"></asp:TextBox>
     </div>
         <div class="btnvolver">
         <asp:Button ID="btnVolver" runat="server" Text="Volver a la pagina de compras"  CssClass="btn btn-info" OnClick="btnVolver_Click"/>
